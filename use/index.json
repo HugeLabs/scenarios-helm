@@ -4,6 +4,11 @@
   "details": {
     "steps": [
       {
+        "title": "Exploring the Kubernetes Environment",
+        "text": "step0/text.md",
+        "verify": "step0/verify.sh"
+      },
+      {
         "title": "Find all Helm releases in the cluster",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
