@@ -1,8 +1,8 @@
+## Create a Helm Chart
+
 Write the Markdown content for creating a Helm chart into \`/root/demochart\`.
 
-<br>
-<details><summary>Info</summary>
-<br>
+### Glossary
 
 ```plain
 Helm Chart: A package of pre-configured Kubernetes resources.
@@ -15,6 +15,9 @@ Helm Values: Parameters that customize the Helm Chart during installation.
 </details>
 
 <br>
+
+### Create a new Helm chart.
+
 <details><summary>Tip 1 - Create a New Helm Chart</summary>
 <br>
 
@@ -25,26 +28,17 @@ helm create demochart
 </details>
 
 <br>
-<details><summary>Tip 2 - Explore the Generated Chart</summary>
+<details><summary>Tip 2 - What's inside?</summary>
 <br>
 
 ```plain{{exec}}
-ls demochart/
-```
-
-</details>
-
-<br>
-<details><summary>Solution</summary>
-<br>
-
-Create a new Helm chart and explore its structure.
-
-<br>
-
-```plain
-helm create demochart
-ls demochart/ > /root/demochart
+ls demochart
 ```{{exec}}
 
 </details>
+
+<br>
+
+---
+
+The Helm chart is created. Now, let's customize the chart.
