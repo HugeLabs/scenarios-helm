@@ -34,4 +34,4 @@ kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80
 
 You can now access the cat pictures by clicking on the link below:
 
-[Access Cat Pics]({{TRAFFIC_HOST1_80}}/cats/Cat1.jpg)
+[Cat Pics]({{TRAFFIC_HOST1_80}}/images/cat1.jpg)
