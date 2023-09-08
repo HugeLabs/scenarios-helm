@@ -14,5 +14,6 @@ while ! kubectl get nodes | grep -w "Ready"; do
   sleep 1
 done
 
+kubectl apply -f /ks/pv.yaml
 
 touch /ks/.k8sfinished

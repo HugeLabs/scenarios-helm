@@ -40,7 +40,8 @@
         {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"},
         {"file": "init.yaml", "target": "/ks", "chmod": "+x"},
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
-        {"file": "crd.yaml", "target": "/code/crd.yaml", "chmod": "+x"}
+        {"file": "crd.yaml", "target": "/code/crd.yaml", "chmod": "+x"},
+        {"file": "pv.yaml", "target": "/ks", "chmod": "+x"}
       ]
     }
   },
