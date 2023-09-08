@@ -49,5 +49,13 @@
   },
   "backend": {
     "imageid": "kubernetes-ckad-1node"
+  },
+  "tabs": {
+    "tabs": [
+      {
+        "title": "Cat Pictures",
+        "url": "({{TRAFFIC_SELECTOR}})"
+      }
+    ]
   }
 }
