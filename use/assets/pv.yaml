@@ -1,10 +1,23 @@
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: cat-pics-pv
+  name: assets-pv-1
 spec:
   capacity:
-    storage: 1Gi
+    storage: 10Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: assets-pv-2
+spec:
+  capacity:
+    storage: 10Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
