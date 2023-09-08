@@ -1,0 +1,2 @@
+the following are links to the wikimedia commons images used in this project. They are CC-BY-SA 4.0 licensed. The license and author is available in each link.
+https://commons.wikimedia.org/wiki/File:Domestic_Cat_%27Moonie%27.jpg

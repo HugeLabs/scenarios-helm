@@ -42,7 +42,8 @@
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
-        {"file": "catpics.yaml", "target": "/root"}
+        {"file": "catpics.yaml", "target": "/root"},
+        {"file": "cats/Domestic_Cat_Moonie.jpg", "target": "/root/cats"}
       ]
     }
   },
