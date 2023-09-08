@@ -8,16 +8,6 @@
 # long execution time, not sure why. Hence this file should be as short as possible.
 
 LOGFILE=/ks/step1-verify.log
-#set -e # exit once any command fails
-
-{
-    set -e
-
-    date
-
-    cat /root/releases | grep apiserver
-    cat /root/releases | grep webserver
-
-} >> ${LOGFILE} 2>&1
+set -e # exit once any command fails
 
 echo "done" # let Validator know success

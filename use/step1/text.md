@@ -21,7 +21,7 @@ Next, let's copy some cat pictures into the Nginx container. For the sake of thi
 POD_NAME=$(kubectl get pods -l app=nginx -o jsonpath="{.items[0].metadata.name}")
 
 # Copy cat pictures into the pod
-kubectl cp /root/cats $POD_NAME:/usr/share/nginx/html/images
+kubectl cp /root/cats/* $POD_NAME:/usr/share/nginx/html/images
 ```{{exec}}
 
 ## Expose the Service
