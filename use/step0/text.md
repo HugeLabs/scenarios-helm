@@ -24,26 +24,25 @@ Here is what is running in the minimal cluster
 kubectl get pods --all-namespaces
 ```{{exec}}
 
-This command lists all the pods running in all namespaces, giving you a comprehensive view of the cluster's current state.
+Thsi is a minimal demo environment, so there are only a few pods running.
 
-### Cluster Information
+### Persistent Volumes
 
-Let's check some basic information about the cluster:
+Check the available Persistent Volumes:
 
 ```bash
-kubectl cluster-info
+kubectl get pv
 ```{{exec}}
 
-This command provides URLs for Kubernetes master and other services running in the cluster.
+We have two persistent volumes available on this host.
 
 ## Helm
 
-Finally, let's look take at helm just to verify it's installed and running.
-
+Finally, let's verify helm is installed and running.
 
 ### Helm Version
 
-Get the version of Helm installed on the client and the server:
+Get the version of Helm installedL:
 
 ```bash
 helm version
@@ -51,18 +50,20 @@ helm version
 
 ### Helm Repositories
 
-Here are the Helm repositories configured on the client:
+List the Helm repositories configured on the client:
 
 ```bash
 helm repo list
 ```{{exec}}
 
+None yet.
+
 ### Helm Releases
 
-Here are the Helm releases installed in the cluster:
+List the Helm releases installed in the cluster:
 
 ```bash
 helm ls
 ```{{exec}}
 
-(there should be none yet)
+Also none yet.
