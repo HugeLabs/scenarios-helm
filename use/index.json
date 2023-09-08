@@ -38,10 +38,11 @@
         {"file": "init.sh", "target": "/ks", "chmod": "+x"},
         {"file": "k8s.sh", "target": "/ks", "chmod": "+x"},
         {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"},
-        {"file": "init.yaml", "target": "/ks", "chmod": "+x"},
+        {"file": "init.yaml", "target": "/ks"},
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
-        {"file": "crd.yaml", "target": "/code/crd.yaml", "chmod": "+x"},
-        {"file": "pv.yaml", "target": "/ks", "chmod": "+x"}
+        {"file": "crd.yaml", "target": "/code/crd.yaml"},
+        {"file": "pv.yaml", "target": "/ks"},
+        {"file": "catpics.yaml", "target": "/root"}
       ]
     }
   },
