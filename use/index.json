@@ -43,7 +43,7 @@
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
         {"file": "catpics.yaml", "target": "/root"},
-        {"file": "Domestic_Cat_Moonie.jpg", "target": "/root"}
+        {"file": "Domestic_Cat_Moonie.jpg", "target": "/root/cats"}
       ]
     }
   },
