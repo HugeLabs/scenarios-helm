@@ -29,7 +29,7 @@ kubectl cp /root/cats $POD_NAME:/usr/share/nginx/html/images
 Now, let's expose the service so that you can access it from your browser:
 
 ```bash
-kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80
+kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80 &
 ```{{exec}}
 
 You can now access the cat pictures by clicking on the link below:
