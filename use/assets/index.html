@@ -5,13 +5,22 @@
   <script type="text/javascript">
     let currentImageIndex = 0;
     const images = ["cat1.jpg", "cat2.jpg"];
+    let backgroundColor = "white"; // Default background color
+    let intervalTime = 3000; // Default interval time in milliseconds
 
     function changeImage() {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       document.getElementById("catImage").src = "images/" + images[currentImageIndex];
     }
 
-    setInterval(changeImage, 3000); // Change image every 3 seconds
+    function setStyles() {
+      document.body.style.backgroundColor = backgroundColor;
+    }
+
+    window.onload = function() {
+      setStyles();
+      setInterval(changeImage, intervalTime); // Change image based on intervalTime
+    }
   </script>
 </head>
 <body>
@@ -19,4 +28,3 @@
   <img id="catImage" src="images/cat1.jpg" alt="Cat" width="300">
 </body>
 </html>
-
