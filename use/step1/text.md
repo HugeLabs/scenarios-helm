@@ -1,16 +1,9 @@
 
-<details><summary>
-
-# Create the service
-</summary>
+<details><summary># Create the service</summary>
 
 In this step, we will deploy an Nginx service that will serve some adorable cat pictures. We'll also expose the service so that you can view the pictures in your browser.
 
- <details><summary>
-
- ## Deploy
-
- </summary>
+ <details><summary>## Deploy</summary>
 
   <details><summary>
 
