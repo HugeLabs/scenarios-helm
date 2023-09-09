@@ -43,8 +43,8 @@
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
         {"file": "catpics.yaml", "target": "/root"},
-        {"file": "cat1.jpg", "target": "/root/cats"}
-        {"file": "cat2.jpg", "target": "/root/cats"}
+        {"file": "cat1.jpg", "target": "/root/cats"},
+        {"file": "cat2.jpg", "target": "/root/cats"},
         {"file": "index.html", "target": "/root/cats"}
       ]
     }
