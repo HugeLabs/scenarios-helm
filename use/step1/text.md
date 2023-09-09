@@ -12,10 +12,22 @@ kubectl apply -f /root/catpics.yaml
 ```{{exec}}
 
 This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
+<details><summary>test inner details</summary>
+
+Verify that the service is listening on port 80:
+
+```bash
+curl localhost:80
+```{{exec}}
 </details>
+</details>
+
+
 ## Copy Cat Pictures
 
 Next, let's copy some cat pictures into the Nginx container. For the sake of this demo, assume that the cat pictures have already been downloaded to a directory on the host.
+
+
 
 ```bash
 # Find the name of the Nginx pod
