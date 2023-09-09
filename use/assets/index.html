@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cat Slideshow</title>
+  <script type="text/javascript">
+    let currentImageIndex = 0;
+    const images = ["cat1.jpg", "cat2.jpg"];
+
+    function changeImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      document.getElementById("catImage").src = "images/" + images[currentImageIndex];
+    }
+
+    setInterval(changeImage, 3000); // Change image every 3 seconds
+  </script>
+</head>
+<body>
+  <h1>Cat Slideshow</h1>
+  <img id="catImage" src="images/cat1.jpg" alt="Cat" width="300">
+</body>
+</html>
+
