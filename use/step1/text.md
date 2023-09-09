@@ -34,7 +34,7 @@ Next, let's copy some cat pictures into the Nginx container. For the sake of thi
 POD_NAME=$(kubectl get pods -l app=nginx -o jsonpath="{.items[0].metadata.name}")
 
 # Copy cat pictures into the pod
-kubectl cp /root/cats/* $POD_NAME:/usr/share/nginx/html/images
+kubectl cp /root/cats/* $POD_NAME:/usr/share/nginx/html/slideshow
 ```{{exec}}
 
 ## Expose the Service
@@ -49,4 +49,7 @@ You can now access the cat pictures by clicking on the link below:
 
 [Welcome to NGINX]({{TRAFFIC_HOST1_80}})
 
-[Cat Pics]({{TRAFFIC_HOST1_80}}/images/cat1.jpg)
+<hidden> asdf </hidden>
+
+
+[Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow)
