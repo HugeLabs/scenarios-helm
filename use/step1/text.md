@@ -2,8 +2,9 @@
 
 In this step, we will deploy an Nginx service that will serve some adorable cat pictures. We'll also expose the service so that you can view the pictures in your browser.
 
-## Deploy the Service
+<details><summary>1</summary>
 
+## Deploy the Service
 First, let's deploy the service using the YAML file that's already been provided for you:
 
 ```bash
@@ -11,7 +12,7 @@ kubectl apply -f /root/catpics.yaml
 ```{{exec}}
 
 This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
-
+</details>
 ## Copy Cat Pictures
 
 Next, let's copy some cat pictures into the Nginx container. For the sake of this demo, assume that the cat pictures have already been downloaded to a directory on the host.
