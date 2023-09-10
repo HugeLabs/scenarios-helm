@@ -67,6 +67,7 @@ kubectl get all -n demo
 
 <!-- Speaker script:
 Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The pvc we created is here, but we do need to lookfor it specifically.
+-->
 
 
 <details><summary></summary>
