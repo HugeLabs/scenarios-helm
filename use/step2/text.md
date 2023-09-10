@@ -1,4 +1,5 @@
-Create a Helm Chart for the Service
+### Create a Helm Chart for the Service
+
 Here we will encapsulate the same service we deployed manually into a Helm chart for easier management and deployment.
 
 <!-- Speaker script:
@@ -7,9 +8,11 @@ In this step, we'll take the service we deployed manually and encapsulate it int
 
 
 <details><summary></summary>
+
+### Initialize Helm Chart
+
 First, let's initialize a new Helm chart.
 
-<details><summary></summary>
 
 ```bash
 helm create catpics-chart
