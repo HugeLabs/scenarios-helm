@@ -10,7 +10,7 @@
 
     function changeImage() {
       currentImageIndex = (currentImageIndex + 1) % images.length;
-      document.getElementById("catImage").src = "images/" + images[currentImageIndex];
+      document.getElementById("catImage").src = "" + images[currentImageIndex];
     }
 
     function setStyles() {
@@ -25,6 +25,6 @@
 </head>
 <body>
   <h1>Cat Slideshow</h1>
-  <img id="catImage" src="images/cat1.jpg" alt="Cat" width="300">
+  <img id="catImage" src="cat1.jpg" alt="Cat" width="300">
 </body>
 </html>
