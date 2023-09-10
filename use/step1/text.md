@@ -27,17 +27,19 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 ### Deploy the YAML spec
 
 <!-- Speaker script:
-Now we deploy the service from the spec. We'll use the `kubectl apply` command to create the service. This will create the PersistentVolumeClaim and the Deployment.
+Now we deploy the service from the spec. We'll use the `kubectl apply` command to create the service. This will create the PersistentVolumeClaim, Deployment, and Service.
+Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them.
 -->
+
+
+Deploy the service from the spec.
 
 ```bash
 kubectl apply -f /root/catpics.yaml
 ```{{exec}}
 
-This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
 
 <details><summary></summary>
-check
 
 #### Check that the service is listening
 
