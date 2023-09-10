@@ -66,29 +66,20 @@ kubectl apply -f /root/catpics.yaml -n demo
 kubectl get service -n demo
 ```{{exec}}
 
-### Check that the service is listening
+### Deploy content
 
-<details><summary></summary>
-
-```bash
-curl localhost:80
-```{{exec}}
-
-
-### Copy Cat Pictures
-
-Next, let's copy some cat pictures into the Nginx container. For the sake of this demo, assume that the cat pictures have already been downloaded to a directory on the host.
-
-
+The content for the service is stored in a persistent volume. We'll copy some content into the persistent volume.
 
 ```bash
 # Find the name of the Nginx pod
-POD_NAME=$(kubectl get pods -l app=nginx -o jsonpath="{.items[0].metadata.name}")
+POD_NAME=$(kubectl get pods -n demo -l app=nginx -o jsonpath="{.items[0].metadata.name}")
+echo $POD_NAME
 ```{{exec}}
+
 
 ```bash
 # Copy cat pictures into the pod
-kubectl cp /root/cats/* $POD_NAME:/usr/share/nginx/html/slideshow
+kubectl cp -n demo /root/cats/* $POD_NAME:/usr/share/nginx/html/slideshow
 ```{{exec}}
 
 ## Expose the Service
