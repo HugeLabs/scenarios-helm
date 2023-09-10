@@ -8,9 +8,14 @@ data:
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Welcome to Nginx</title>
+        <title>Page Title</title>
     </head>
     <body style="background-color: green;">
-        <h1>Hello, Nginx!</h1>
+    <h1>Hello, Nginx!</h1>
+    <pre>
+     /\_/\
+    ( ^.^ )
+    (")_(")
+    </pre>
     </body>
     </html>
