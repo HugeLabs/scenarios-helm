@@ -35,7 +35,7 @@ find catpics-chart
 ```{{exec}}
 
 <!-- Speaker script:
-There are, like, a lot of files here, and if we look in a few of them, a whole lot of settings. To be clear, this is a fine starting point for a Helm chart, encapsulating a lot of expertise and best practices from the Helm community. This is where I started and got stuck with my first Helm chart, kind of gawking at the settings. A minimum viable Helm chart can be way simpler than this, and I wish I'd done that first. So let's just delete all these files and start from scratch.
+There are, like, a lot of files here, and if we look in a few of them, a whole lot of settings. To be clear, this is a fine starting point for a Helm chart, encapsulating a lot of expertise and best practices from the Helm community. This is where I started and got stuck with my first Helm chart, kind of gawking at the settings. A minimum viable Helm chart can be way simpler than this, and I wish I'd done that first. Just know that the template is there too, and it's good. But we're gonna delete it.
 -->
 
 
@@ -43,6 +43,7 @@ There are, like, a lot of files here, and if we look in a few of them, a whole l
 
 ### nope
 
+The helm create command is useful and actually easy to use, but we're going to disregard it for our minimum viable chart.
 
 ```
 rm catpics-chart
