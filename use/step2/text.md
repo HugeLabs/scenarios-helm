@@ -7,7 +7,6 @@ In this step, we'll take the service we deployed manually and encapsulate it int
 
 
 <details><summary></summary>
-Initialize Helm Chart
 First, let's initialize a new Helm chart.
 
 <details><summary></summary>
@@ -19,8 +18,6 @@ helm create catpics-chart
 <!-- Speaker script:
 This command initializes a new Helm chart with a default directory structure and some boilerplate files. We'll modify these files to fit our service.
 -->
-
-
 
 <details><summary></summary>
 
