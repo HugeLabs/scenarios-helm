@@ -48,22 +48,9 @@ There is not much running here but it is enough to demonstrate Helm.
 
 <details><summary></summary>
 
-### Persistent Volumes
-
-Check the available Persistent Volumes:
-
-```bash
-kubectl get pv
-```{{exec}}
-
-We have some persistent volumes configured and waiting.
-
-
-<details><summary></summary>
-
 ## Helm
 
-Finally, let's verify helm is installed and running.
+Verify helm is installed and running.
 
 ### Helm Version
 
