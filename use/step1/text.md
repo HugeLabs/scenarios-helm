@@ -1,6 +1,6 @@
-## Create the Service
+## Create the service from a YAML spec
 
-<details><summary>Non-helm service created from a YAML spec</summary>
+<details><summary>Steps</summary>
 
 
 
@@ -65,6 +65,8 @@ kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80 &
 ```{{exec}}
 </details>
 
+
+
 <details><summary>3</summary>
 
 Explore the service in your browser:
@@ -80,4 +82,6 @@ Explore the service in your browser:
 </details>
 
 </details>
+
+### Inspect
 </details>
