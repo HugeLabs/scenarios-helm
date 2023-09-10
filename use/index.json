@@ -9,12 +9,12 @@
         "verify": "step0/verify.sh"
       },
       {
-        "title": "1",
+        "title": "A simple deployment",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
       },
       {
-        "title": "2",
+        "title": "Creating a helm chart",
         "text": "step2/text.md",
         "verify": "step2/verify.sh"
       },
@@ -42,7 +42,9 @@
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
-        {"file": "spec/catpics.yaml", "target": "/root/spec"},
+        {"file": "spec/deployment.yaml", "target": "/root/spec"},
+        {"file": "spec/service.yaml", "target": "/root/spec"},
+        {"file": "spec/pvc.yaml", "target": "/root/spec"},
         {"file": "cat1.jpg", "target": "/root/cats"},
         {"file": "cat2.jpg", "target": "/root/cats"},
         {"file": "index.html", "target": "/root/cats"}
