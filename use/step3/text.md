@@ -69,8 +69,15 @@ vi templates/configmap.yaml
 
 Now that our Helm chart is ready, let's deploy it.
 
+create a namespace for the service.
+
 ```bash
-helm install my-helm-release .
+kubectl create namespace helm-demo
+```{{exec}}
+
+
+```bash
+helm install my-helm-release . -n helm-demo
 ```{{exec}}
 
 ### Verify Deployment
@@ -78,9 +85,15 @@ helm install my-helm-release .
 Check that the Helm release is deployed and the service is running.
 
 ```bash
-helm list
-kubectl get services
+helm list -n helm-demo
 ```{{exec}}
+
+
+
+```bash
+kubectl get services -n helm-demo
+```{{exec}}
+
 
 ### Access the Service
 
