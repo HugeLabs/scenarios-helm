@@ -29,6 +29,10 @@ spec:
         image: nginx:alpine
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
         volumeMounts:
         - name: cat-pics
           mountPath: /usr/share/nginx/html/images
