@@ -2,9 +2,13 @@
 
 Before we dive into Helm, we will briefly inspect Kubernetes environment we're working with.
 
+<details><summary></summary>
+
 ## Kubernetes
 
-The Kubernetes cluster is already up and running, so let's take a look at it.
+The Kubernetes cluster is already up and running, let's take a look at it.
+
+<details><summary></summary>
 
 ### Cluster Nodes
 
@@ -16,6 +20,9 @@ kubectl get nodes
 
 This command lists all the nodes that are part of the cluster. In this case, there is only one node.
 
+<details><summary></summary>
+
+
 ### View All Pods Across Namespaces
 
 Here is what is running in the minimal cluster
@@ -24,7 +31,10 @@ Here is what is running in the minimal cluster
 kubectl get pods --all-namespaces
 ```{{exec}}
 
-Thsi is a minimal demo environment, so there are only a few pods running.
+This is a minimal demo environment, so there are only a few pods running.
+
+
+<details><summary></summary>
 
 ### Persistent Volumes
 
@@ -36,27 +46,24 @@ kubectl get pv
 
 We have two persistent volumes available on this host.
 
+
+<details><summary></summary>
+
 ## Helm
 
 Finally, let's verify helm is installed and running.
 
 ### Helm Version
 
-Get the version of Helm installedL:
+Get the version of Helm installed:
 
 ```bash
 helm version
 ```{{exec}}
 
-### Helm Repositories
 
-List the Helm repositories configured on the client:
+<details><summary></summary>
 
-```bash
-helm repo list
-```{{exec}}
-
-None yet.
 
 ### Helm Releases
 
@@ -66,4 +73,4 @@ List the Helm releases installed in the cluster:
 helm ls
 ```{{exec}}
 
-Also none yet.
+None yet.
