@@ -15,7 +15,7 @@ First, let's initialize a new Helm chart.
 
 
 ```bash
-helm create catpics-chart
+helm create demo-chart-from-template
 ```{{exec}}
 
 <!-- Speaker script:
@@ -31,7 +31,7 @@ Let's take a look at the files that were created.
 ``
 
 ```bash
-find catpics-chart
+find demo-chart-from-template
 ```{{exec}}
 
 <!-- Speaker script:
@@ -46,6 +46,6 @@ There are, like, a lot of files here, and if we look in a few of them, a whole l
 The helm create command is useful and actually easy to use, but we're going to disregard it for our minimum viable chart.
 
 ```
-rm catpics-chart
+rm demo-chart-from-template
 ```{{exec}}
 

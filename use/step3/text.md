@@ -26,16 +26,44 @@ Copy the existing 'deployment.yaml', 'service.yaml', and 'pvc.yaml' files from '
 ```bash
 cp /root/spec/deployment.yaml templates/deployment.yaml
 cp /root/spec/service.yaml templates/service.yaml
-cp /root/spec/pvc.yaml templates/pvc.yaml
+cp /root/spec/configmap.yaml templates/configmap.yaml
+
 ```{{exec}}
 
-### Update values.yaml
+### Create values.yaml
 
 Edit the 'values.yaml' file in your Helm chart directory to match your specific needs. For example, you can specify the image and tag you want to use.
 
 ```bash
-nano values.yaml
+cat << EOF > values.yaml
+backgroundColor: "blue"
+replicaCount: 3
+EOF
 ```{{exec}}
+
+
+### Customize Helm Chart with variables
+
+Update 'deployment.yaml' file to use the values from 'values.yaml'.
+
+```bash
+vi templates/deployment.yaml
+```{{exec}}
+
+```yaml
+{{ .Values.replicaCount }}
+```{{copy}}
+
+Update 'configmap.yaml' file to use the values from 'values.yaml'.
+
+```bash
+vi templates/configmap.yaml
+```{{exec}}
+
+```yaml
+{{ .Values.backgroundColor }}
+```{{copy}}
+
 
 ### Deploy Helm Chart
 
