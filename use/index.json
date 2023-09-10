@@ -1,6 +1,6 @@
 {
-  "title": "NEED TITLE",
-  "description": "NEED DESCRIPTION",
+  "title": "Helm chart creation",
+  "description": "Create a minimal helm chart",
   "details": {
     "steps": [
       {
@@ -12,11 +12,11 @@
         "text": "step1/text.md"
       },
       {
-        "title": "Creating a helm chart",
+        "title": "Creating a helm chart with helm create",
         "text": "step2/text.md"
       },
       {
-        "title": "3",
+        "title": "Creating a helm chart from scratch",
         "text": "step3/text.md"
       }
     ],
@@ -40,22 +40,11 @@
         {"file": "pv.yaml", "target": "/ks"},
         {"file": "spec/configmap.yaml", "target": "/root/spec"},
         {"file": "spec/deployment.yaml", "target": "/root/spec"},
-        {"file": "spec/service.yaml", "target": "/root/spec"},
-        {"file": "spec/pvc.yaml", "target": "/root/spec"},
-        {"file": "cat1.jpg", "target": "/root/cats"},
-        {"file": "cat2.jpg", "target": "/root/cats"},
-        {"file": "index.html", "target": "/root/cats"}
+        {"file": "spec/service.yaml", "target": "/root/spec"}
       ]
     }
   },
   "backend": {
     "imageid": "kubernetes-ckad-1node"
-  },
-  "tabs": [
-      {
-        "title": "Cat Pictures",
-        "url": "({{TRAFFIC_SELECTOR}})"
-      }
-  ]
-
+  }
 }
