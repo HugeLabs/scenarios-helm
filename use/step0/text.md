@@ -1,12 +1,21 @@
+# Before We Begin
+
+## Audience
+
+This workshop is intended for people who are new to Helm and want to learn how a minimal helm chart goes together. If you are already familiar with Helm, you might find more value in a different session. I will definitely not be offended if anyone leaves.
+
+<details><summary></summary>
+
+
 # The Environment
 
-Before we dive into Helm, we will briefly inspect Kubernetes environment we're working with.
+Let's inspect Kubernetes environment we're working with.
 
 <details><summary></summary>
 
 ## Kubernetes
 
-The Kubernetes cluster is already up and running, let's take a look at it.
+The Kubernetes cluster is already up and running. We'll take a look at it.
 
 <details><summary></summary>
 
@@ -32,7 +41,9 @@ kubectl get pods --all-namespaces
 ```{{exec}}
 
 This is a minimal demo environment, so there are only a few pods running.
+<!-- Speaker script:
 
+There is not much running here but it is enough to demonstrate Helm.
 
 <details><summary></summary>
 
@@ -44,7 +55,7 @@ Check the available Persistent Volumes:
 kubectl get pv
 ```{{exec}}
 
-We have two persistent volumes available on this host.
+We have some persistent volumes configured and waiting.
 
 
 <details><summary></summary>
