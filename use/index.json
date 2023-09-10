@@ -9,17 +9,17 @@
         "verify": "step0/verify.sh"
       },
       {
-        "title": "Find all Helm releases in the cluster",
+        "title": "1",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Delete a Helm release",
+        "title": "2",
         "text": "step2/text.md",
         "verify": "step2/verify.sh"
       },
       {
-        "title": "Install a Helm chart",
+        "title": "3",
         "text": "step3/text.md",
         "verify": "step3/verify.sh"
       }
@@ -42,7 +42,7 @@
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
-        {"file": "catpics.yaml", "target": "/root"},
+        {"file": "spec/catpics.yaml", "target": "/root/spec"},
         {"file": "cat1.jpg", "target": "/root/cats"},
         {"file": "cat2.jpg", "target": "/root/cats"},
         {"file": "index.html", "target": "/root/cats"}
