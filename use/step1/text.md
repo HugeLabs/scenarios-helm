@@ -28,9 +28,8 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 
 <!-- Speaker script:
 Now we deploy the service from the spec. We'll use the `kubectl apply` command to create the service. This will create the PersistentVolumeClaim, Deployment, and Service.
-Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them.
+Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
 -->
-
 
 Deploy the service from the spec.
 
