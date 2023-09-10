@@ -7,6 +7,19 @@ We will start with a very basic service to wrap in a helm chart.
 
 <details><summary></summary>
 
+### create a namespace
+
+Start by creating a namespace for the service.
+
+<details><summary></summary>
+```bash
+kubectl create namespace demo
+```{{exec}}
+
+
+
+<details><summary></summary>
+
 ### Inspect the YAML spec
 
 <!-- Speaker script:
@@ -27,22 +40,29 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 ### Deploy the YAML spec
 
 <!-- Speaker script:
-Now we deploy the service from the spec. We'll use the `kubectl apply` command to create the service. This will create the PersistentVolumeClaim, Deployment, and Service.
-Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
+Now we deploy the service from the spec. We'll use the `kubectl apply` command to deploy it into the namespace we made. This will create the PersistentVolumeClaim, Deployment, and Service.  Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
 -->
 
 Deploy the service from the spec.
 
+<details><summary></summary>
 ```bash
-kubectl apply -f /root/catpics.yaml
+kubectl apply -f /root/catpics.yaml -n demo
 ```{{exec}}
 
 
 <details><summary></summary>
 
-#### Check that the service is listening
+### Check the service
 
+<details><summary></summary>
+```bash
+kubectl get service -n demo
+```{{exec}}
 
+### Check that the service is listening
+
+<details><summary></summary>
 ```bash
 curl localhost:80
 ```{{exec}}
