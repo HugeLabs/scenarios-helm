@@ -56,16 +56,26 @@ Packaging the Helm chart creates a versioned archive file of your chart. This ma
 
 ### Deploy Helm Chart
 
-Finally, let's deploy the Helm chart into our existing namespace.
+Finally, let's deploy the Helm chart into a new namespace
 
 <details><summary></summary>
 
+
+Create the namespace:
+
 ```bash
-helm install catpics catpics-chart/ --namespace demo
+kubectl create namespace helm-demo
+```{{exec}}
+
+And install the chart:
+
+```bash
+helm install catpics catpics-chart/ --namespace helm-demo
 ```{{exec}}
 
 <!-- Speaker script:
-We deploy the Helm chart into the `demo` namespace where our manual service was initially deployed. This will create or update the Kubernetes resources defined in the chart.
+Here we create a new namespace for the Helm chart and deploy the chart into that namespace. We use the `helm install` command to deploy the chart. In this case, we're naming the release `catpics` and deploying the chart from the `catpics-chart` directory. We also specify the namespace to deploy into with the `--namespace` flag.
+
 -->
 
 <details><summary></summary>
