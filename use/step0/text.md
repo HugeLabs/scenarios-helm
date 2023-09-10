@@ -41,9 +41,10 @@ kubectl get pods --all-namespaces
 ```{{exec}}
 
 This is a minimal demo environment, so there are only a few pods running.
-<!-- Speaker script:
 
+<!-- Speaker script:
 There is not much running here but it is enough to demonstrate Helm.
+-->
 
 <details><summary></summary>
 
