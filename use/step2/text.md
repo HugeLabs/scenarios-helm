@@ -45,8 +45,6 @@ We copy our existing YAML spec into the `templates` directory of the Helm chart.
 
 Now, let's package the Helm chart.
 
-<details><summary></summary>
-
 ```bash
 helm package catpics-chart
 ```{{exec}}
