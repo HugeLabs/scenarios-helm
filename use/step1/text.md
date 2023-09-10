@@ -29,15 +29,15 @@ Let's take a look at the YAML file that we'll be using to deploy the service. I'
 View the YAML file that defines our service.
 
 ```bash
-cat /root/spec/pvc.yaml
-```{{exec}}
-
-```bash
 cat /root/spec/deployment.yaml
 ```{{exec}}
 
 ```bash
 cat /root/spec/service.yaml
+```{{exec}}
+
+```bash
+cat /root/spec/pvc.yaml
 ```{{exec}}
 
 <!-- Speaker script:
