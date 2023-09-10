@@ -124,5 +124,8 @@ Check that nginx is running
 
 <details><summary></summary>
 View the "service"
-[Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow)
 
+[Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow/)
+
+
+asdfasdfasd
