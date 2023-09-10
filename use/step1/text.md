@@ -23,13 +23,21 @@ kubectl create namespace demo
 ### Inspect the YAML spec
 
 <!-- Speaker script:
-Let's take a look at the YAML file that we'll be using to deploy the service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so let's use the cat command here.
+Let's take a look at the YAML file that we'll be using to deploy the service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so I will use the cat command here.
 -->
 
 View the YAML file that defines our service.
 
 ```bash
-cat /root/catpics.yaml
+cat /root/spec/pvc.yaml
+```{{exec}}
+
+```bash
+cat /root/spec/deployment.yaml
+```{{exec}}
+
+```bash
+cat /root/spec/service.yaml
 ```{{exec}}
 
 <!-- Speaker script:
