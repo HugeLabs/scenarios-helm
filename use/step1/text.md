@@ -77,8 +77,6 @@ And the pvc.
 kubectl get pvc -n demo
 ```{{exec}}
 
-<details><summary></summary>
-
 ### Deploy content
 
 The content for the service is stored in a persistent volume. We'll copy some content into the persistent volume.
