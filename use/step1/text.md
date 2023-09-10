@@ -98,7 +98,7 @@ echo $POD_NAME
 
 ```bash
 # Copy cat pictures into the pod
-for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/$f; done
+for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow/$f; done
 ```{{exec}}
 
 
