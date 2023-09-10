@@ -38,6 +38,7 @@
         {"file": "solution.sh", "target": "/var/run/kc-internal", "chmod": "+x"},
         {"file": "crd.yaml", "target": "/code/crd.yaml"},
         {"file": "pv.yaml", "target": "/ks"},
+        {"file": "spec/configmap.yaml", "target": "/root/spec"},
         {"file": "spec/deployment.yaml", "target": "/root/spec"},
         {"file": "spec/service.yaml", "target": "/root/spec"},
         {"file": "spec/pvc.yaml", "target": "/root/spec"},
