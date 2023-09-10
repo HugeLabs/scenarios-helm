@@ -1,31 +1,34 @@
 ## Create the service from a YAML spec
+<!-- Speaker script:
+To start, we'll create a service from a YAML spec. This is a common way to deploy services in Kubernetes. We'll start with a very basic service to wrap in a helm chart. In this case, we'll deploy an Nginx container that will serve static content from a directory on the host, but you could just as easily deploy a containerized application.
+-->
+
+We will start with a very basic service to wrap in a helm chart.
 
 <details><summary></summary>
-Steps
 
+### Inspect the YAML spec
 
-
-### Deploy
-
-<details><summary></summary>
-Deploy the service with kubectl
-
-#### Inspect the YAML
+<!-- Speaker script:
+Let's take a look at the YAML file that we'll be using to deploy the service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so let's use the cat command here.
+-->
+View the YAML file that defines our service.
 
 <details><summary></summary>
-Inspect the YAML
-
-
-Let's take a look at the YAML file that we'll be using to deploy the service:
-
 ```bash
 cat /root/catpics.yaml
 ```{{exec}}
 
-#### Deploy the YAML
+<!-- Speaker script:
+Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. The PersistentVolumeClaim consumes one of the PersistentVolumes that exists on the cluster. The Deployment creates a single replica of the Nginx container and will serve static content from that persistent volume. The Service exposes the Nginx container on port 80.
+-->
 
 <details><summary></summary>
-Deploy the YAML
+### Deploy the YAML spec
+
+<!-- Speaker script:
+Now we deploy the service from the spec. We'll use the `kubectl apply` command to create the service. This will create the PersistentVolumeClaim and the Deployment.
+-->
 
 ```bash
 kubectl apply -f /root/catpics.yaml
@@ -71,7 +74,7 @@ kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80 &
 
 
 <details><summary></summary>
-3
+
 
 Explore the service in your browser:
 
