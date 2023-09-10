@@ -82,6 +82,8 @@ Explore the service in your browser:
 </details>
 
 </details>
+</details>
+</details>
 
-### Inspect
+
 </details>
