@@ -19,9 +19,11 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: cat-pics
-          mountPath: /usr/share/nginx/html/images
+        - name: index-html
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
       volumes:
-      - name: cat-pics
-        persistentVolumeClaim:
-          claimName: cat-pics-pvc
+      - name: index-html
+        configMap:
+          name: index-html
+
