@@ -55,9 +55,16 @@ Now we deploy the service from the spec. We'll use the `kubectl apply` command t
 Deploy the service from the spec.
 
 ```bash
-kubectl apply -f /root/catpics.yaml -n demo
+kubectl apply -f /root/spec/deployment.yml -n demo
 ```{{exec}}
 
+```bash
+kubectl apply -f /root/spec/service.yml -n demo
+```{{exec}}
+
+```bash
+kubectl apply -f /root/spec/pvc.yml -n demo
+```{{exec}}
 
 <details><summary></summary>
 
