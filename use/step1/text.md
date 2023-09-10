@@ -98,7 +98,7 @@ echo $POD_NAME
 
 ```bash
 # Copy cat pictures into the pod
-for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow/$f; done
+for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow/$(basename $f); done
 ```{{exec}}
 
 
@@ -126,6 +126,3 @@ Check that nginx is running
 View the "service"
 
 [Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow/)
-
-
-asdfasdfasd
