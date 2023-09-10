@@ -52,7 +52,7 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 Now we deploy the service from the spec. We'll use the `kubectl apply` command to deploy it into the namespace we made. This will create the PersistentVolumeClaim, Deployment, and Service.  Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
 -->
 
-Deploy the service from the spec.
+Deploy the service from the YAML files in the spec directory.
 
 ```bash
 kubectl apply -f /root/spec/ -n demo
