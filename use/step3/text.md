@@ -38,6 +38,7 @@ Edit the 'values.yaml' file in your Helm chart directory to match your specific 
 cat << EOF > values.yaml
 backgroundColor: "blue"
 replicaCount: 3
+port: 81
 EOF
 ```{{exec}}
 
@@ -46,6 +47,7 @@ cat << EOF > Chart.yaml
 apiVersion: v2
 name: my-chart
 version: 0.1.0
+EOF
 ```{{exec}}
 
 
@@ -69,6 +71,16 @@ vi templates/configmap.yaml
 
 ```yaml
 {{ .Values.backgroundColor }}
+```{{copy}}
+
+Update 'service.yaml' file to use the values from 'values.yaml'.
+
+```bash
+vi templates/service.yaml
+```{{exec}}
+
+```yaml
+{{ .Values.port }}
 ```{{copy}}
 
 
@@ -101,11 +113,41 @@ helm list -n helm-demo
 kubectl get services -n helm-demo
 ```{{exec}}
 
+Forward the port to access the service.
+
+```bash
+kubectl port-forward -n helm-demo --address 0.0.0.0 service/my-chart 81:81 &
+```{{exec}}
+
+Link to the service in the browser.
+
+[{{TRAFFIC_HOST1_81}}]({{TRAFFIC_HOST1_81}})
+
+
 
 ### Access the Service
 
 Finally, let's access the service to make sure everything is working as expected.
 
 ```bash
-curl <SERVICE_IP>
+curl http://localhost:81
+```{{exec}}
+
+
+### Upgrade the Helm Chart
+
+```bash
+kubectl get pods -n helm-demo
+```{{exec}}
+
+Upgrade the Helm chart to change the number of replicas to 5.
+
+```bash
+helm upgrade my-release my-chart --set replicaCount=5 -n helm-demo
+```{{exec}}
+
+let's see the new pods
+
+```bash
+kubectl get pods -n helm-demo
 ```{{exec}}
