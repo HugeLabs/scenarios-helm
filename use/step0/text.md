@@ -70,7 +70,7 @@ helm version
 List the Helm releases installed in the cluster:
 
 ```bash
-helm ls
+helm ls --all-namespaces
 ```{{exec}}
 
 None yet.
