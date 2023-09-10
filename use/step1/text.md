@@ -13,8 +13,6 @@ To start, we'll create a service from a YAML spec. This is a common way to deplo
 
 Start by creating a namespace for the service.
 
-<details><summary></summary>
-
 ```bash
 kubectl create namespace demo
 ```{{exec}}
@@ -30,8 +28,6 @@ Let's take a look at the YAML file that we'll be using to deploy the service. I'
 
 View the YAML file that defines our service.
 
-<details><summary></summary>
-
 ```bash
 cat /root/catpics.yaml
 ```{{exec}}
@@ -41,6 +37,7 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 -->
 
 <details><summary></summary>
+
 ### Deploy the YAML spec
 
 <!-- Speaker script:
@@ -49,8 +46,6 @@ Now we deploy the service from the spec. We'll use the `kubectl apply` command t
 
 Deploy the service from the spec.
 
-<details><summary></summary>
-
 ```bash
 kubectl apply -f /root/catpics.yaml -n demo
 ```{{exec}}
@@ -58,13 +53,31 @@ kubectl apply -f /root/catpics.yaml -n demo
 
 <details><summary></summary>
 
-### Check the service
+### Check what was deployed
+
+Here we find the service and deployment.
+
+<!-- Speaker script:
+A quick check to make sure that the service and deployment were created. We can see that the service is exposed on port 80. The deployment has one replica and is ready to serve traffic. We can also see that the pod is running on the node that we're connected to.
+-->
+
+```bash
+kubectl get all -n demo
+```{{exec}}
+
+<!-- Speaker script:
+Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The pvc we created is here, but we do need to lookfor it specifically.
+
 
 <details><summary></summary>
 
+And the pvc.
+
 ```bash
-kubectl get service -n demo
+kubectl get pvc -n demo
 ```{{exec}}
+
+<details><summary></summary>
 
 ### Deploy content
 
