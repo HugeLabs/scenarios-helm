@@ -1,19 +1,17 @@
-
-<details><summary>Create the service</summary>
-
 # Create the Service
 
-Creating a service from a yaml file.
-<--
+<details><summary>Non-helm service created from a YAML spec</summary>
 
 
-<details><summary>Deploy</summary>
 
 ## Deploy
 
-<details><summary>Inspect the YAML</summary>
+<details><summary>Deploy the service with kubectl</summary>
 
 ### Inspect the YAML
+
+<details><summary>Inspect the YAML</summary>
+
 
 Let's take a look at the YAML file that we'll be using to deploy the service:
 
@@ -22,12 +20,9 @@ cat /root/catpics.yaml
 ```{{exec}}
 </details>
 
+### Deploy the YAML
 
 <details><summary>Deploy the YAML</summary>
-
-
-
-Deploy the service using the YAML file:
 
 ```bash
 kubectl apply -f /root/catpics.yaml
