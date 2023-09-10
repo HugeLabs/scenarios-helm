@@ -1,28 +1,59 @@
+## Step 3: Create a Minimum Viable Helm Chart
 
-Install the Helm chart `nginx-stable/nginx-ingress` into *Namespace* `team-yellow`.
+In this step, we'll create a Helm chart to manage our Nginx service. We'll use the existing YAML files in `/root/spec` as a starting point for our Helm chart templates.
 
-The release should've the name `devserver`.
+### Initialize Helm Chart
 
+First, let's initialize a new Helm chart. This will create a new directory with the necessary files and structure.
 
+```bash
+helm create my-helm-chart
+```
 
-<br>
-<details><summary>Tip</summary>
-<br>
+### Customize Helm Chart
 
-```plain
-helm install -h
-```{{exec}}
+Navigate to the `templates` directory inside your Helm chart folder.
 
-</details>
+```bash
+cd my-helm-chart/templates
+```
 
+Now, replace the existing `deployment.yaml` and `service.yaml` with the ones from `/root/spec`.
 
+```bash
+cp /root/spec/deployment.yaml ./deployment.yaml
+cp /root/spec/service.yaml ./service.yaml
+```
 
-<br>
-<details><summary>Solution</summary>
-<br>
+### Update values.yaml
 
-```plain
-helm -n team-yellow install devserver nginx-stable/nginx-ingress
-```{{exec}}
+Edit the `values.yaml` file in your Helm chart directory to match your specific needs. For example, you can specify the image and tag you want to use.
 
-</details>
+```bash
+nano ../values.yaml
+```
+
+### Deploy Helm Chart
+
+Now that our Helm chart is ready, let's deploy it.
+
+```bash
+helm install my-helm-release .
+```
+
+### Verify Deployment
+
+Check that the Helm release is deployed and the service is running.
+
+```bash
+helm list
+kubectl get services
+```
+
+### Access the Service
+
+Finally, let's access the service to make sure everything is working as expected.
+
+```bash
+curl <SERVICE_IP>
+```
