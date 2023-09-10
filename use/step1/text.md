@@ -1,14 +1,14 @@
-# Create the Service
+## Create the Service
 
 <details><summary>Non-helm service created from a YAML spec</summary>
 
 
 
-## Deploy
+### Deploy
 
 <details><summary>Deploy the service with kubectl</summary>
 
-### Inspect the YAML
+#### Inspect the YAML
 
 <details><summary>Inspect the YAML</summary>
 
@@ -18,9 +18,8 @@ Let's take a look at the YAML file that we'll be using to deploy the service:
 ```bash
 cat /root/catpics.yaml
 ```{{exec}}
-</details>
 
-### Deploy the YAML
+#### Deploy the YAML
 
 <details><summary>Deploy the YAML</summary>
 
@@ -30,9 +29,9 @@ kubectl apply -f /root/catpics.yaml
 
 This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
 
-  <details><summary>check</summary>
+<details><summary>check</summary>
 
-  ### Check that the service is listening
+#### Check that the service is listening
 
 
 ```bash
@@ -41,7 +40,7 @@ curl localhost:80
   </details>
 
 
-## Copy Cat Pictures
+### Copy Cat Pictures
 
 Next, let's copy some cat pictures into the Nginx container. For the sake of this demo, assume that the cat pictures have already been downloaded to a directory on the host.
 
@@ -80,4 +79,5 @@ Explore the service in your browser:
 </details>
 </details>
 
+</details>
 </details>
