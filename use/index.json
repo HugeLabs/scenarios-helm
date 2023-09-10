@@ -5,23 +5,19 @@
     "steps": [
       {
         "title": "Exploring the Kubernetes Environment",
-        "text": "step0/text.md",
-        "verify": "step0/verify.sh"
+        "text": "step0/text.md"
       },
       {
         "title": "A simple deployment",
-        "text": "step1/text.md",
-        "verify": "step1/verify.sh"
+        "text": "step1/text.md"
       },
       {
         "title": "Creating a helm chart",
-        "text": "step2/text.md",
-        "verify": "step2/verify.sh"
+        "text": "step2/text.md"
       },
       {
         "title": "3",
-        "text": "step3/text.md",
-        "verify": "step3/verify.sh"
+        "text": "step3/text.md"
       }
     ],
     "finish": {
