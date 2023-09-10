@@ -101,9 +101,6 @@ echo $POD_NAME
 for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow; done
 ```{{exec}}
 
-```bash
-kubectl cp -n demo /root/cats/ $POD_NAME:/usr/share/nginx/html/slideshow
-```{{exec}}
 
 ## Expose the Service
 
