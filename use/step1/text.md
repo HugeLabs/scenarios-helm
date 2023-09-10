@@ -1,27 +1,44 @@
 
-<details><summary># Create the service</summary>
+<details><summary>Create the service</summary>
 
-In this step, we will deploy an Nginx service that will serve some adorable cat pictures. We'll also expose the service so that you can view the pictures in your browser.
+# Create the Service
 
- <details><summary>## Deploy</summary>
+Creating a service from a yaml file.
+<--
 
-  <details><summary>
 
-  ### Deploy the Service
-  </summary>
+<details><summary>Deploy</summary>
 
-  First, let's deploy the service using the YAML file that's already been provided for you:
+## Deploy
 
-  ```bash
-  kubectl apply -f /root/catpics.yaml
-  ```{{exec}}
+<details><summary>Inspect the YAML</summary>
+
+### Inspect the YAML
+
+Let's take a look at the YAML file that we'll be using to deploy the service:
+
+```bash
+cat /root/catpics.yaml
+```{{exec}}
+</details>
+
+
+<details><summary>Deploy the YAML</summary>
+
+
+
+Deploy the service using the YAML file:
+
+```bash
+kubectl apply -f /root/catpics.yaml
+```{{exec}}
 
 This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
 
-  <details><summary>
+  <details><summary>check</summary>
 
   ### Check that the service is listening
-  </summary>
+
 
 ```bash
 curl localhost:80
