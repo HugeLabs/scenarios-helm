@@ -41,6 +41,13 @@ replicaCount: 3
 EOF
 ```{{exec}}
 
+```bash
+cat << EOF > Chart.yaml
+apiVersion: v2
+name: my-chart
+version: 0.1.0
+```{{exec}}
+
 
 ### Customize Helm Chart with variables
 
@@ -77,7 +84,7 @@ kubectl create namespace helm-demo
 
 
 ```bash
-helm install my-helm-release . -n helm-demo
+helm install my-release . -n helm-demo
 ```{{exec}}
 
 ### Verify Deployment
