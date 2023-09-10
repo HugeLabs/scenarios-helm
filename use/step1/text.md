@@ -14,6 +14,7 @@ To start, we'll create a service from a YAML spec. This is a common way to deplo
 Start by creating a namespace for the service.
 
 <details><summary></summary>
+
 ```bash
 kubectl create namespace demo
 ```{{exec}}
@@ -26,9 +27,11 @@ kubectl create namespace demo
 <!-- Speaker script:
 Let's take a look at the YAML file that we'll be using to deploy the service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so let's use the cat command here.
 -->
+
 View the YAML file that defines our service.
 
 <details><summary></summary>
+
 ```bash
 cat /root/catpics.yaml
 ```{{exec}}
@@ -47,6 +50,7 @@ Now we deploy the service from the spec. We'll use the `kubectl apply` command t
 Deploy the service from the spec.
 
 <details><summary></summary>
+
 ```bash
 kubectl apply -f /root/catpics.yaml -n demo
 ```{{exec}}
@@ -57,6 +61,7 @@ kubectl apply -f /root/catpics.yaml -n demo
 ### Check the service
 
 <details><summary></summary>
+
 ```bash
 kubectl get service -n demo
 ```{{exec}}
@@ -64,6 +69,7 @@ kubectl get service -n demo
 ### Check that the service is listening
 
 <details><summary></summary>
+
 ```bash
 curl localhost:80
 ```{{exec}}
