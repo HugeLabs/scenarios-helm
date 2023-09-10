@@ -79,7 +79,11 @@ echo $POD_NAME
 
 ```bash
 # Copy cat pictures into the pod
-kubectl cp -n demo /root/cats/* $POD_NAME:/usr/share/nginx/html/slideshow
+for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow; done
+```{{exec}}
+
+```bash
+kubectl cp -n demo /root/cats/ $POD_NAME:/usr/share/nginx/html/slideshow
 ```{{exec}}
 
 ## Expose the Service
@@ -87,7 +91,7 @@ kubectl cp -n demo /root/cats/* $POD_NAME:/usr/share/nginx/html/slideshow
 Now, let's expose the service so that you can access it from your browser:
 
 ```bash
-kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80 &
+kubectl port-forward -n demo --address 0.0.0.0 service/nginx-service 80:80 &
 ```{{exec}}
 
 
