@@ -1,16 +1,16 @@
 ## Create the service from a YAML spec
 
-<details><summary>Steps</summary>
+<details>Steps
 
 
 
 ### Deploy
 
-<details><summary>Deploy the service with kubectl</summary>
+<details>Deploy the service with kubectl
 
 #### Inspect the YAML
 
-<details><summary>Inspect the YAML</summary>
+<details>Inspect the YAML
 
 
 Let's take a look at the YAML file that we'll be using to deploy the service:
@@ -21,7 +21,7 @@ cat /root/catpics.yaml
 
 #### Deploy the YAML
 
-<details><summary>Deploy the YAML</summary>
+<details>Deploy the YAML
 
 ```bash
 kubectl apply -f /root/catpics.yaml
@@ -29,7 +29,7 @@ kubectl apply -f /root/catpics.yaml
 
 This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
 
-<details><summary>check</summary>
+<details>check
 
 #### Check that the service is listening
 
@@ -37,7 +37,6 @@ This will create a PersistentVolumeClaim and a Deployment for our Nginx service.
 ```bash
 curl localhost:80
 ```{{exec}}
-  </details>
 
 
 ### Copy Cat Pictures
@@ -63,27 +62,17 @@ Now, let's expose the service so that you can access it from your browser:
 ```bash
 kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80 &
 ```{{exec}}
-</details>
 
 
 
-<details><summary>3</summary>
+<details>3
 
 Explore the service in your browser:
 
-<details><summary>Check that nginx is running</summary>
+<details>Check that nginx is running
 
 [Welcome to NGINX]({{TRAFFIC_HOST1_80}})
-</details>
 
-<details><summary>View the "service"</summary>
+<details>View the "service"
 [Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow)
-</details>
-</details>
 
-</details>
-</details>
-</details>
-
-
-</details>
