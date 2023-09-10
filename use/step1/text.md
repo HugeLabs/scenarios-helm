@@ -37,11 +37,11 @@ cat /root/spec/service.yaml
 ```{{exec}}
 
 ```bash
-cat /root/spec/pvc.yaml
+cat /root/spec/configmap.yaml
 ```{{exec}}
 
 <!-- Speaker script:
-Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. The PersistentVolumeClaim consumes one of the PersistentVolumes that exists on the cluster. The Deployment creates a single replica of the Nginx container and will serve static content from that persistent volume. The Service exposes the Nginx container on port 80.
+Here we have a Configmap, a Deployment and a Service for this demo. The Deployment creates a single replica of the Nginx container and will serve static content from that persistent volume. The Service exposes the Nginx container on port 80. The Configmap contains the static content that will be served by the Nginx container.
 -->
 
 <details><summary></summary>
@@ -49,7 +49,7 @@ Here we have a PersistentVolumeClaim, a Deployment and a Service for this demo. 
 ### Deploy the YAML spec
 
 <!-- Speaker script:
-Now we deploy the service from the spec. We'll use the `kubectl apply` command to deploy it into the namespace we made. This will create the PersistentVolumeClaim, Deployment, and Service.  Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
+Now we deploy the service from the spec. We'll use the `kubectl apply` command to deploy it into the namespace we made. This will create the Configmap, Deployment, and Service.  Applying this spec tells kubernetes that these items should exist in the cluster. If they already exist, it will update them to match the spec. If they don't exist, it will create them. Kubernetes will then start working to make sure that the cluster matches the spec.
 -->
 
 Deploy the service from the YAML files in the spec directory.
@@ -73,35 +73,19 @@ kubectl get all -n demo
 ```{{exec}}
 
 <!-- Speaker script:
-Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The pvc we created is here, but we do need to lookfor it specifically.
+Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The configmap we created is here, but we do need to lookfor it specifically.
 -->
 
 
 <details><summary></summary>
 
-And the pvc.
+### Check the Configmap
 
 ```bash
-kubectl get pvc -n demo
+kubectl get configmap -n demo
 ```{{exec}}
 
-### Deploy content
-
-The content for the service is stored in a persistent volume. We'll copy some content into the persistent volume.
-
-```bash
-# Find the name of the Nginx pod
-POD_NAME=$(kubectl get pods -n demo -l app=nginx -o jsonpath="{.items[0].metadata.name}")
-echo $POD_NAME
-```{{exec}}
-
-
-```bash
-# Copy cat pictures into the pod
-kubectl exec -n demo $POD_NAME -- mkdir /usr/share/nginx/html/slideshow/
-for f in /root/cats/*; do kubectl cp -n demo $f $POD_NAME:/usr/share/nginx/html/slideshow/$(basename $f); done
-```{{exec}}
-
+<details><summary></summary>
 
 ## Expose the Service
 
@@ -116,14 +100,14 @@ kubectl port-forward -n demo --address 0.0.0.0 service/nginx-service 80:80 &
 <details><summary></summary>
 
 
-Explore the service in your browser:
+Explore the service in the browser:
 
-<details><summary></summary>
-Check that nginx is running
+This is a link to port 80 of the node that we're connected to:
 
-[Welcome to NGINX]({{TRAFFIC_HOST1_80}})
+[TRAFFIC_HOST1_80]({{TRAFFIC_HOST1_80}})
 
-<details><summary></summary>
-View the "service"
 
-[Cat Pics]({{TRAFFIC_HOST1_80}}/slideshow/)
+
+<!-- Speaker script:
+Here we can see that the service is running and serving our page. We can also see that the service is exposed on port 80 of the node that we're connected to.
+-->
