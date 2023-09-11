@@ -40,7 +40,7 @@ Inspect the Kubernetes cluster.
 
 List the nodes available in the cluster:
 
-<-- Speaker script:
+<!-- Speaker script:
 An aside on the pronunciation of the Kubernetes command line tool.
 
 I've heard it pronounced "kube control" and "kube cuddle", or kube-c-t-l. But at a local devops meetup, someone suggested the "worst reasonable pronunciation" as ku-bectl, saying it's fun to watch peoples' faces as you say it. It is indeed fun. I've been using that ever since, and I think you should try it too.
