@@ -139,10 +139,40 @@ Explore the service in the browser:
 
 This is a link to port 80 of the node that we're connected to:
 
-[{{TRAFFIC_HOST1_80}}]({{TRAFFIC_HOST1_80}})
-
-
+[look at the cat]({{TRAFFIC_HOST1_80}})
 
 <!-- Speaker script:
 Here we can see that the service is running and serving our page. We can also see that the service is exposed on port 80 of the node that we're connected to.
+-->
+
+<details><summary></summary>
+
+## Cleanup
+
+<!-- Speaker script:
+Now that we've seen the service running, let's clean up the resources we created.
+-->
+
+### Delete
+
+Delete the service:
+
+```bash
+kubectl delete namespace demo
+```{{exec}}
+
+<!-- Speaker script:
+We'll delete the namespace that we created. This will delete all of the resources that we created in that namespace.
+-->
+
+### Verify
+
+Verify that the namespace was deleted:
+
+```bash
+kubectl get namespace
+```{{exec}}
+
+<!-- Speaker script:
+We can see that the namespace was deleted.
 -->
