@@ -4,7 +4,7 @@
 Here is a basic service that we will later wrap in a helm chart.
 
 <!-- Speaker script:
-To start, we'll create a service from a YAML spec. This is a common way to deploy services in Kubernetes. We'll start with a very basic service to wrap in a helm chart. In this case, we'll deploy an Nginx container that will serve static content from a directory on the host, but you could just as easily deploy a containerized application.
+To start, we'll create a service from a YAML spec. This is a common way to deploy services in Kubernetes. We'll start with a very basic service to wrap in a helm chart. In this case, we'll deploy an Nginx container that will serve static content, but you could just as easily deploy a containerized application.
 -->
 
 <details><summary></summary>
@@ -17,13 +17,22 @@ Start by creating a namespace for the service.
 kubectl create namespace demo
 ```{{exec}}
 
+And we can see it in the list of namespaces.
+
+```bash
+kubectl get namespace
+```{{exec}}
+
+<!-- Speaker script:
+This is where we'll deploy the service.
+-->
 
 <details><summary></summary>
 
 ### Inspect the YAML spec
 
 <!-- Speaker script:
-Let's take a look at the YAML file that we'll be using to deploy the service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so I will use the cat command here.
+Let's take a look at the YAML files that define our service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, and I have a treat for you all. I will use the cat command here.
 -->
 
 View the YAML file that defines our service.
@@ -32,16 +41,24 @@ View the YAML file that defines our service.
 cat /root/spec/deployment.yaml
 ```{{exec}}
 
+<!-- Speaker script:
+This is a deployment that will create a single replica of the Nginx container. It serve static content that we'll define in a configmap later.
+-->
+
 ```bash
 cat /root/spec/service.yaml
 ```{{exec}}
+
+<!-- Speaker script:
+This is a service that will expose the Nginx container on port 80.
+-->
 
 ```bash
 cat /root/spec/configmap.yaml
 ```{{exec}}
 
 <!-- Speaker script:
-Here we have a Configmap, a Deployment and a Service for this demo. The Deployment creates a single replica of the Nginx container and will serve static content from that persistent volume. The Service exposes the Nginx container on port 80. The Configmap contains the static content that will be served by the Nginx container.
+Here we define the static content that the Nginx container will serve.
 -->
 
 <details><summary></summary>
@@ -89,12 +106,15 @@ kubectl get configmap -n demo
 
 ## Expose the Service
 
-Now, let's expose the service so that you can access it from your browser:
+Now, let's expose the service so that we can access it from the browser:
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/nginx-service 80:80 &
+kubectl port-forward -n demo --address 0.0.0.0 service/demo 80:80 &
 ```{{exec}}
 
+<!-- Speaker script:
+Here we use the `kubectl port-forward` command to expose the service on port 80 of the node that we're connected to. This command will run in the background.
+-->
 
 
 <details><summary></summary>
@@ -104,7 +124,7 @@ Explore the service in the browser:
 
 This is a link to port 80 of the node that we're connected to:
 
-[TRAFFIC_HOST1_80]({{TRAFFIC_HOST1_80}})
+[{{TRAFFIC_HOST1_80}}]({{TRAFFIC_HOST1_80}})
 
 
 

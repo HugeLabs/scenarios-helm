@@ -2,22 +2,28 @@
 
 ## Audience
 
+Beginners who have not made or customized a Helm chart before.
+
+<!-- Speaker script:
 This workshop is intended for people who are new to Helm and want to learn how a minimal helm chart goes together. If you are already familiar with Helm, you might find more value in a different session. I will definitely not be offended if anyone leaves.
+-->
 
 <details><summary></summary>
 
 
 # The Environment
 
-Let's inspect Kubernetes environment we're working with.
+Inspect Kubernetes environment.
+
+<!-- Speaker script:
+Let's take a look at the environment we'll be working in. We are using a Kubernetes cluster with a single node. We'll be using Helm to deploy a service into this cluster. These are both running in a container on this machine. We'll be using the command line to interact with the cluster and Helm.
+-->
 
 <details><summary></summary>
 
 ## Kubernetes
 
 The Kubernetes cluster is already up and running. We'll take a look at it.
-
-<details><summary></summary>
 
 ### Cluster Nodes
 
