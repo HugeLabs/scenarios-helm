@@ -1,12 +1,22 @@
 # Before We Begin
 
+<!-- Speaker script:
+In this workshop, we'll create a Helm chart to manage a service. We'll use a precreated specification as a starting point for our Helm chart templates.
+-->
+
 ## Audience
 
 Beginners who have not made or customized a Helm chart before.
 
 <!-- Speaker script:
-This workshop is intended for people who are new to Helm and want to learn how a minimal helm chart goes together. If you are already familiar with Helm, you might find more value in a different session. I will definitely not be offended if anyone leaves.
+This workshop is intended for people who are new to Helm and want to learn how a minimal helm chart goes together. If you are already familiar with Helm, if you've ever customized a helm template, you might find more value in a different session. I will definitely not be offended if anyone leaves.
+
+Helm is a package manager for Kubernetes. It helps you manage Kubernetes applications. Like npm for Node.js, or NuGet for .NET but for the Kubernetes platform. It's a command line tool that you can use to install, upgrade, and remove applications on Kubernetes clusters.
+
+It's also a templating engine that you can use to create reusable templates for Kubernetes resources. Helm charts are packages of pre-configured Kubernetes resources, making it easy to manage and deploy applications on Kubernetes clusters. Helm charts are the recommended way to package and deploy applications on Kubernetes.
 -->
+
+
 
 <details><summary></summary>
 
@@ -16,14 +26,15 @@ This workshop is intended for people who are new to Helm and want to learn how a
 Inspect Kubernetes environment.
 
 <!-- Speaker script:
-Let's take a look at the environment we'll be working in. We are using a Kubernetes cluster with a single node. We'll be using Helm to deploy a service into this cluster. These are both running in a container on this machine. We'll be using the command line to interact with the cluster and Helm.
+Let's take a look at the environment we'll be working in. We are using a Kubernetes cluster with a single node. And we have Helm installed and configured in this cluster.
 -->
 
 <details><summary></summary>
 
 ## Kubernetes
 
-The Kubernetes cluster is already up and running. We'll take a look at it.
+Inspect the Kubernetes cluster.
+
 
 ### Cluster Nodes
 
@@ -33,23 +44,22 @@ List the nodes available in the cluster:
 kubectl get nodes
 ```{{exec}}
 
-This command lists all the nodes that are part of the cluster. In this case, there is only one node.
+<!-- Speaker script:
+The Kubernetes cluster is running on a single node.
+-->
 
 <details><summary></summary>
 
 
-### View All Pods Across Namespaces
+### What's running right now?
 
-Here is what is running in the minimal cluster
+Check what's running in the cluster across all namespaces:
 
 ```bash
 kubectl get pods --all-namespaces
 ```{{exec}}
-
-This is a minimal demo environment, so there are only a few pods running.
-
 <!-- Speaker script:
-There is not much running here but it is enough to demonstrate Helm.
+This is a minimal demo environment so there is not much running here, but is fully functional and we can use it to demonstrate Helm.
 -->
 
 <details><summary></summary>
@@ -66,7 +76,8 @@ Get the version of Helm installed:
 helm version
 ```{{exec}}
 
-
+<!-- Speaker script:
+We can see that Helm is installed and configured to use the Kubernetes cluster.
 <details><summary></summary>
 
 
@@ -78,4 +89,6 @@ List the Helm releases installed in the cluster:
 helm ls --all-namespaces
 ```{{exec}}
 
+<!-- Speaker script:
 None yet.
+-->
