@@ -121,7 +121,9 @@ kubectl port-forward -n helm-demo --address 0.0.0.0 service/my-chart 81:81 &
 
 Link to the service in the browser.
 
-[{{TRAFFIC_HOST1_81}}]({{TRAFFIC_HOST1_81}})
+{{TRAFFIC_HOST1_81}}
+
+[a link to the thing]({{TRAFFIC_HOST1_81}})
 
 
 
