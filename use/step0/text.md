@@ -86,7 +86,7 @@ helm version
 <!-- Speaker script:
 We can see that Helm is installed and configured to use the Kubernetes cluster.
 <details><summary></summary>
-
+-->
 
 ### Helm Releases
 
