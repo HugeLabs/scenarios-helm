@@ -40,6 +40,13 @@ Inspect the Kubernetes cluster.
 
 List the nodes available in the cluster:
 
+<-- Speaker script:
+An aside on the pronunciation of the Kubernetes command line tool.
+
+I've heard it pronounced "kube control" and "kube cuddle", or kube-c-t-l. But at a local devops meetup, someone suggested the "worst reasonable pronunciation" as ku-bectl, saying it's fun to watch peoples' faces as you say it. It is indeed fun. I've been using that ever since, and I think you should try it too.
+-->
+
+
 ```bash
 kubectl get nodes
 ```{{exec}}
@@ -53,7 +60,7 @@ The Kubernetes cluster is running on a single node.
 
 ### What's running right now?
 
-Check what's running in the cluster across all namespaces:
+Pods running in the cluster across all namespaces:
 
 ```bash
 kubectl get pods --all-namespaces
@@ -90,5 +97,5 @@ helm ls --all-namespaces
 ```{{exec}}
 
 <!-- Speaker script:
-None yet.
+None yet. This is the basic environment we'll be working in. Now let's put an application on this cluster.
 -->
