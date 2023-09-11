@@ -11,13 +11,18 @@ To start, we'll create a service from a YAML spec. This is a common way to deplo
 
 ### create a namespace
 
-Start by creating a namespace for the service.
+Create a namespace for the service.
+
+<!-- Speaker script:
+Namespaces are a way to group resources in Kubernetes. They are a way to organize resources and control access to them. We'll create a namespace for our service to live in. I'll call it "demo".
+-->
+
 
 ```bash
 kubectl create namespace demo
 ```{{exec}}
 
-And we can see it in the list of namespaces.
+Verify it was created.
 
 ```bash
 kubectl get namespace
@@ -29,11 +34,12 @@ This is where we'll deploy the service.
 
 <details><summary></summary>
 
-### Inspect the YAML spec
-
 <!-- Speaker script:
-Let's take a look at the YAML files that define our service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, and I have a treat for you all. I will use the cat command here.
+Let's take a look at the YAML files that define our service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so, of course, I will use the cat command here.
 -->
+
+
+### Inspect the YAML spec
 
 View the YAML file that defines our service.
 
@@ -41,21 +47,30 @@ View the YAML file that defines our service.
 cat /root/spec/deployment.yaml
 ```{{exec}}
 
+
 <!-- Speaker script:
-This is a deployment that will create a single replica of the Nginx container. It serve static content that we'll define in a configmap later.
+This is a deployment that will run an Nginx container. It will run one replica of the container. It will mount a configmap as a volume. We'll see the configmap in a moment. The configmap will contain the static content that the Nginx container will serve.
 -->
+
+
+<details><summary></summary>
+
 
 ```bash
 cat /root/spec/service.yaml
 ```{{exec}}
 
+
 <!-- Speaker script:
-This is a service that will expose the Nginx container on port 80.
+This is a service that will expose the Nginx pods in the deployment. The service will be exposed on port 80. It will forward traffic to port 8001 on the pods.
 -->
 
 ```bash
 cat /root/spec/configmap.yaml
 ```{{exec}}
+
+
+
 
 <!-- Speaker script:
 Here we define the static content that the Nginx container will serve.
