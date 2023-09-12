@@ -107,7 +107,7 @@ kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 
 <details><summary></summary>
 
-### uh-oh
+### Uh-oh
 
 why is the color not changing?
 
