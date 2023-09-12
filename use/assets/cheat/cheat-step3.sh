@@ -28,7 +28,7 @@ port: 81
 EOF
 
 # create the namespace
-kubectl create namespace helm-demo
+kubectl create namespace demo
 
 #release the chart
-helm install my-release demo-chart -n helm-demo
+helm install my-release demo-chart -n demo

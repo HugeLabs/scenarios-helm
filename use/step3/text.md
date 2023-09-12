@@ -122,12 +122,12 @@ Now that our Helm chart is ready, let's deploy it.
 create a namespace for the service.
 
 ```bash
-kubectl create namespace helm-demo
+kubectl create namespace demo
 ```{{copy}}
 
 
 ```bash
-helm install my-release demo-chart -n helm-demo
+helm install my-release demo-chart -n demo
 ```{{copy}}
 
 ### Verify Deployment
@@ -135,19 +135,19 @@ helm install my-release demo-chart -n helm-demo
 Check that the Helm release is deployed and the service is running.
 
 ```bash
-helm list -n helm-demo
+helm list -n demo
 ```{{copy}}
 
 
 
 ```bash
-kubectl get services -n helm-demo
+kubectl get services -n demo
 ```{{copy}}
 
 Forward the port to access the service.
 
 ```bash
-kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81 &
 ```{{copy}}
 
 Link to the service in the browser:

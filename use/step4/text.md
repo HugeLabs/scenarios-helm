@@ -15,7 +15,7 @@ We will change the number of replicas in the deployment by changing the value in
 Observe the initial number of replicas in the deployment.
 
 ```bash
-kubectl get pods -n helm-demo
+kubectl get pods -n demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -29,7 +29,7 @@ vi demo-chart/values.yaml
 Apply the changes by upgrading the release.
 
 ```bash
-helm upgrade my-release demo-chart -n helm-demo
+helm upgrade my-release demo-chart -n demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -37,7 +37,7 @@ helm upgrade my-release demo-chart -n helm-demo
 Check for new pods.
 
 ```bash
-kubectl get pods -n helm-demo
+kubectl get pods -n demo
 ```{{copy}}
 
 <!-- speaker script:
@@ -55,7 +55,7 @@ Another way to customize the Helm chart is to override the values in the `values
 We can override the values in the `values.yaml` file at the command line when we deploy the chart.
 
 ```bash
-helm upgrade my-release demo-chart -n helm-demo --set replicas=5
+helm upgrade my-release demo-chart -n demo --set replicas=5
 ```{{copy}}
 
 <details><summary></summary>
@@ -64,7 +64,7 @@ helm upgrade my-release demo-chart -n helm-demo --set replicas=5
 Check that the number of replicas changed.
 
 ```bash
-kubectl get pods -n helm-demo
+kubectl get pods -n demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -85,7 +85,7 @@ jobs
 if not, we can restart it.
 
 ```bash
-kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81 &
 ```{{copy}}
 
 Now we can refresh the page in the browser.
@@ -102,7 +102,7 @@ Let's change the color of the page by overriding the color when we deploy the ch
 Let's change the color.
 
 ```bash
-helm upgrade my-release demo-chart -n helm-demo --set color=yellow
+helm upgrade my-release demo-chart -n demo --set color=yellow
 ```{{copy}}
 
 ### verify the change
@@ -137,13 +137,13 @@ we can kill the pods one-at-a-time like this:
 Choose one of the pods.
 
 ```bash
-kubectl get pods -n helm-demo
+kubectl get pods -n demo
 ```{{copy}}
 
 Kill the pod.
 
 ```bash
-kubectl delete pod <pod-name> -n helm-demo
+kubectl delete pod <pod-name> -n demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -188,6 +188,6 @@ vi ~/demo-chart/templates/deployment.yaml
 
 
 ```bash
-helm upgrade my-release demo-chart -n helm-demo --set color=yellow
+helm upgrade my-release demo-chart -n demo --set color=yellow
 ```{{copy}}
 

@@ -19,7 +19,7 @@ Namespaces are a way to group resources in Kubernetes. They are a way to organiz
 
 
 ```bash
-kubectl create namespace demo
+kubectl create namespace pre-demo
 ```{{copy}}
 
 Verify it was created.
@@ -101,7 +101,7 @@ Now we deploy the service from the spec. We'll use the `kubectl apply` command t
 Deploy the service from the YAML files in the spec directory.
 
 ```bash
-kubectl apply -f /root/spec/ -n demo
+kubectl apply -f /root/spec/ -n pre-demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -115,7 +115,7 @@ A quick check to make sure that the service and deployment were created. We can 
 -->
 
 ```bash
-kubectl get all -n demo
+kubectl get all -n pre-demo
 ```{{copy}}
 
 <!-- Speaker script:
@@ -128,7 +128,7 @@ Note that in kubectl, "get all" doesn't actually get all resources. It gets seve
 ### Check the Configmap
 
 ```bash
-kubectl get configmap -n demo
+kubectl get configmap -n pre-demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -138,7 +138,7 @@ kubectl get configmap -n demo
 Now, let's expose the service so that we can access it from the browser:
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 80:80 &
+kubectl port-forward -n pre-demo --address 0.0.0.0 service/demo-service 80:80 &
 ```{{copy}}
 
 <!-- Speaker script:
@@ -175,7 +175,7 @@ Now that we've seen what we are about to deploy, let's clean up and deploy with 
 Delete the service:
 
 ```bash
-kubectl delete namespace demo
+kubectl delete namespace pre-demo
 ```{{copy}}
 
 <!-- Speaker script:
