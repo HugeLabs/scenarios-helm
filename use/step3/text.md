@@ -8,7 +8,7 @@ First, let's create a new directory for our Helm chart and navigate into it.
 
 ```bash
 mkdir demo-chart
-```{{copy}}
+```{{exec}}
 
 ### Create Chart Structure
 
@@ -16,7 +16,7 @@ Inside your Helm chart folder, create the following directories and files:
 
 ```bash
 mkdir demo-chart/templates
-```{{copy}}
+```{{exec}}
 
 ### Copy YAML files
 
@@ -27,7 +27,7 @@ cp /root/spec/deployment.yaml demo-chart/templates/deployment.yaml
 cp /root/spec/service.yaml demo-chart/templates/service.yaml
 cp /root/spec/configmap.yaml demo-chart/templates/configmap.yaml
 
-```{{copy}}
+```{{exec}}
 
 ### Create Chart Metadata
 
@@ -43,7 +43,7 @@ apiVersion: v2
 name: demo-chart
 version: 0.1.0
 EOF
-```{{copy}}
+```{{exec}}
 
 
 ## Customize the Chart
@@ -56,7 +56,7 @@ Update 'deployment.yaml' file to use 'replicas' from 'values.yaml'.
 
 ```bash
 vi demo-chart/templates/deployment.yaml
-```{{copy}}
+```{{exec}}
 
 ```yaml
 {{ .Values.replicas }}
@@ -71,7 +71,7 @@ Update 'configmap.yaml' file to use 'color' from 'values.yaml'.
 
 ```bash
 vi demo-chart/templates/configmap.yaml
-```{{copy}}
+```{{exec}}
 
 ```yaml
 {{ .Values.color }}
@@ -85,7 +85,7 @@ Update 'service.yaml' file to use 'port' from 'values.yaml'.
 
 ```bash
 vi demo-chart/templates/service.yaml
-```{{copy}}
+```{{exec}}
 
 ```yaml
 {{ .Values.port }}
@@ -102,7 +102,7 @@ replicas: 1
 color: teal
 port: 81
 EOF
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -123,12 +123,14 @@ create a namespace for the service.
 
 ```bash
 kubectl create namespace demo
-```{{copy}}
+```{{exec}}
 
 
 ```bash
 helm install my-release demo-chart -n demo
-```{{copy}}
+```{{exec}}
+
+<details><summary></summary>
 
 ### Verify Deployment
 
@@ -136,19 +138,22 @@ Check that the Helm release is deployed and the service is running.
 
 ```bash
 helm list -n demo
-```{{copy}}
+```{{exec}}
 
 
 
 ```bash
 kubectl get services -n demo
-```{{copy}}
+```{{exec}}
+
+
+<details><summary></summary>
 
 Forward the port to access the service.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81 &
-```{{copy}}
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
 
 Link to the service in the browser:
 
