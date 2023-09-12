@@ -153,12 +153,3 @@ kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
 Link to the service in the browser:
 
 {{TRAFFIC_HOST1_81}}
-
-### Access the Service
-
-Finally, let's access the service to make sure everything is working as expected.
-
-```bash
-curl http://localhost:81
-```{{copy}}
-
