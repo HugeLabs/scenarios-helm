@@ -70,9 +70,3 @@ I appreciate the time you've given me today. I'm love talking about this stuff.
 <details><summary></summary>
 
 ## Questions
-
-<details><summary></summary>
-
-Here is a picture of my cat
-
-![cat](image.png)
