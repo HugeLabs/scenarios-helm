@@ -9,7 +9,7 @@ First, let's create a new directory for our Helm chart and navigate into it.
 ```bash
 mkdir my-helm-chart
 cd my-helm-chart
-```{{exec}}
+```{{copy}}
 
 ### Create Chart Structure
 
@@ -17,9 +17,9 @@ Inside your Helm chart folder, create the following directories and files:
 
 ```bash
 mkdir templates
-```{{exec}}
+```{{copy}}
 
-### Customize Helm Chart
+### Copy YAML files
 
 Copy the existing 'deployment.yaml', 'service.yaml', and 'pvc.yaml' files from '/root/spec' into the 'templates' directory.
 
@@ -28,7 +28,7 @@ cp /root/spec/deployment.yaml templates/deployment.yaml
 cp /root/spec/service.yaml templates/service.yaml
 cp /root/spec/configmap.yaml templates/configmap.yaml
 
-```{{exec}}
+```{{copy}}
 
 ### Create Chart Metadata
 
@@ -44,40 +44,53 @@ apiVersion: v2
 name: my-chart
 version: 0.1.0
 EOF
-```{{exec}}
+```{{copy}}
 
 
-### Customize Helm Chart with variables
+## Customize the Chart
 
 Update 'deployment.yaml' file to use the values from 'values.yaml'.
+
+### deployment.yaml
+
+Update 'deployment.yaml' file to use 'replicas' from 'values.yaml'.
+
+```bash
+vi templates/deployment.yaml
+```{{copy}}
 
 ```yaml
 {{ .Values.replicas }}
 ```{{copy}}
 
+
+<details><summary></summary>
+
+### configmap.yaml
+
+Update 'configmap.yaml' file to use 'color' from 'values.yaml'.
+
 ```bash
-vi templates/deployment.yaml
-```{{exec}}
+vi templates/configmap.yaml
+```{{copy}}
 
 ```yaml
 {{ .Values.color }}
 ```{{copy}}
 
-Update 'configmap.yaml' file to use the values from 'values.yaml'.
+<details><summary></summary>
+
+### service.yaml
+
+Update 'service.yaml' file to use 'port' from 'values.yaml'.
 
 ```bash
-vi templates/configmap.yaml
-```{{exec}}
-
-Update 'service.yaml' file to use the values from 'values.yaml'.
+vi templates/service.yaml
+```{{copy}}
 
 ```yaml
 {{ .Values.port }}
 ```{{copy}}
-
-```bash
-vi templates/service.yaml
-```{{exec}}
 
 <details><summary></summary>
 
@@ -97,12 +110,12 @@ create a namespace for the service.
 
 ```bash
 kubectl create namespace helm-demo
-```{{exec}}
+```{{copy}}
 
 
 ```bash
 helm install my-release . -n helm-demo
-```{{exec}}
+```{{copy}}
 
 ### Verify Deployment
 
@@ -110,19 +123,19 @@ Check that the Helm release is deployed and the service is running.
 
 ```bash
 helm list -n helm-demo
-```{{exec}}
+```{{copy}}
 
 
 
 ```bash
 kubectl get services -n helm-demo
-```{{exec}}
+```{{copy}}
 
 Forward the port to access the service.
 
 ```bash
 kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-chart 81:81 &
-```{{exec}}
+```{{copy}}
 
 Link to the service in the browser.
 
@@ -138,5 +151,5 @@ Finally, let's access the service to make sure everything is working as expected
 
 ```bash
 curl http://localhost:81
-```{{exec}}
+```{{copy}}
 
