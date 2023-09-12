@@ -87,7 +87,7 @@ jobs
 if not, we can restart it.
 
 ```bash
-kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-chart 81:81 &
+kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
 ```{{copy}}
 
 Now we can refresh the page in the browser.
