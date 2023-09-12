@@ -23,7 +23,7 @@ EOF
 
 cat <<EOF > /root/demo-chart/values.yaml
 replicas: 1
-color: blue
+color: teal
 port: 81
 EOF
 
