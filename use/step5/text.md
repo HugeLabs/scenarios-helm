@@ -52,4 +52,21 @@ We created annotations for our deployment and saw that the pods were "restarted"
 
 <details><summary></summary>
 
+## Thank you!
+
+<!-- speaker script:
+I appreciate the time you've given me today. I'm love talking about this stuff.
+-->
+
+```text
+
+         /\_/\
+        ( ^.^ )
+  @____ (")_(")
+
+```
+
+<details><summary></summary>
+
 ## Questions
+

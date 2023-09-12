@@ -142,6 +142,11 @@ helm install my-release demo-chart -n demo
 
 ### Verify Deployment
 
+<!-- speaker script:
+Did it work? Let's check.
+-->
+
+
 Check that the Helm release is deployed and the service is running.
 
 ```bash
@@ -156,6 +161,8 @@ kubectl get services -n demo
 
 
 <details><summary></summary>
+
+### View in browser
 
 Forward the port to access the service.
 

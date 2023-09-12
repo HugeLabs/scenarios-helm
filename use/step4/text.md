@@ -28,6 +28,9 @@ kubectl get pods -n demo
 
 #### Modify values.yaml
 
+<!-- speaker script:
+Let's make a change. -->
+
 Change the number of replicas to 3 by modifying the `values.yaml` file.
 
 ```bash
