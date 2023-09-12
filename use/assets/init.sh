@@ -23,3 +23,4 @@ touch /ks/.initfinished
 
 
 echo 'export PS1="\u@\h \w \$ "' >> ~/.bashrc
+export PS1="\u@\h \w \$ "
