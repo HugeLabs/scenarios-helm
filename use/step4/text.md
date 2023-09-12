@@ -104,7 +104,7 @@ Let's change the color of the page by overriding the color when we deploy the ch
 Let's change the color.
 
 ```bash
-helm upgrade my-release my-chart --set color=teal -n helm-demo
+helm upgrade my-release demo-chart --set color=orange -n helm-demo
 ```{{copy}}
 
 
@@ -112,7 +112,7 @@ helm upgrade my-release my-chart --set color=teal -n helm-demo
 
 
 ```bash
-helm install my-release my-chart --set color=yellow -n helm-demo
+helm install my-release demo-chart --set color=yellow -n helm-demo
 ```{{copy}}
 
 ### verify the change
@@ -215,6 +215,6 @@ vi templates/deployment.yaml
 
 
 ```bash
-helm upgrade my-release my-chart --set color=yellow -n helm-demo
+helm upgrade my-release demo-chart --set color=yellow -n helm-demo
 ```{{copy}}
 
