@@ -16,7 +16,7 @@ Observe the initial number of replicas in the deployment.
 
 ```bash
 kubectl get pods -n demo
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -24,13 +24,13 @@ Change the number of replicas to 3 by modifying the `values.yaml` file.
 
 ```bash
 vi demo-chart/values.yaml
-```{{copy}}
+```{{exec}}
 
 Apply the changes by upgrading the release.
 
 ```bash
 helm upgrade my-release demo-chart -n demo
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -38,7 +38,7 @@ Check for new pods.
 
 ```bash
 kubectl get pods -n demo
-```{{copy}}
+```{{exec}}
 
 <!-- speaker script:
 Notice that the number of replicas changed. This is because we changed the number of replicas in the deployment. Helm updated the deployment in place.
@@ -56,7 +56,7 @@ We can override the values in the `values.yaml` file at the command line when we
 
 ```bash
 helm upgrade my-release demo-chart -n demo --set replicas=5
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -65,7 +65,7 @@ Check that the number of replicas changed.
 
 ```bash
 kubectl get pods -n demo
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -93,7 +93,7 @@ Let's change the color.
 
 ```bash
 helm upgrade my-release demo-chart -n demo --set color=yellow
-```{{copy}}
+```{{exec}}
 
 ### verify the change
 
@@ -131,13 +131,13 @@ Choose one of the pods.
 
 ```bash
 kubectl get pods -n demo
-```{{copy}}
+```{{exec}}
 
 Kill the pod.
 
 ```bash
 kubectl delete pod <pod-name> -n demo
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -193,7 +193,7 @@ vi ~/demo-chart/templates/deployment.yaml
 
 ```bash
 helm upgrade my-release demo-chart -n demo --set replicas=color=yellow
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -201,7 +201,7 @@ Now the pods will be restarted automatically when the configmap changes.
 
 ```bash
 kubectl get pods -n demo
-```{{copy}}
+```{{exec}}
 
 and the page will be yellow.
 
