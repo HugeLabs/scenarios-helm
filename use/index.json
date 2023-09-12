@@ -45,7 +45,7 @@
         {"file": "spec/configmap.yaml", "target": "/root/spec"},
         {"file": "spec/deployment.yaml", "target": "/root/spec"},
         {"file": "spec/service.yaml", "target": "/root/spec"},
-        {"file": "cheat/cheat-step3.sh", "target": "/cheat-step3.sh", "chmod": "+x"}
+        {"file": "cheat/cheat-step3.sh", "target": "/root/.cheat/cheat-step3.sh", "chmod": "+x"}
       ]
     }
   },
