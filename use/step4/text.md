@@ -92,7 +92,7 @@ kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
 
 Now we can refresh the page in the browser.
 
-[the page]({{TRAFFIC_HOST1_81}})
+{{TRAFFIC_HOST1_81}}
 
 <details><summary></summary>
 
@@ -104,14 +104,6 @@ Let's change the color of the page by overriding the color when we deploy the ch
 Let's change the color.
 
 ```bash
-helm upgrade my-release demo-chart --set color=orange -n helm-demo
-```{{copy}}
-
-
-
-
-
-```bash
 helm install my-release demo-chart --set color=yellow -n helm-demo
 ```{{copy}}
 
@@ -119,7 +111,7 @@ helm install my-release demo-chart --set color=yellow -n helm-demo
 
 Refresh the page in the browser to see the new color.
 
-[the page]({{TRAFFIC_HOST1_81}})
+{{TRAFFIC_HOST1_81}}
 
 <details><summary></summary>
 
