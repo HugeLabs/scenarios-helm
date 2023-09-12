@@ -76,19 +76,9 @@ kubectl get pods -n demo
 
 Lets have another look at our web page before we continue.
 
-first we'll ensure that our port-forward is still running.
-
-```bash
-jobs
-```{{copy}}
-
-if not, we can restart it.
-
 ```bash
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
-
-Now we can refresh the page in the browser.
 
 {{TRAFFIC_HOST1_81}}
 
@@ -108,6 +98,10 @@ helm upgrade my-release demo-chart -n demo --set color=yellow
 ### verify the change
 
 Refresh the page in the browser to see the new color.
+
+``bash
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
 
 {{TRAFFIC_HOST1_81}}
 
@@ -129,8 +123,7 @@ To get the change to apply, we need to restart the pods.
 
 In kubernetes, 'restart' is a euphemism for killing. The pods will be replaced automatically.
 
-we can kill the pods one-at-a-time like this:
-
+we can kill the pods and when they restart they will pick up the new configmap.
 
 <details><summary></summary>
 
@@ -154,7 +147,7 @@ check again to see that the pod was replaced.
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
 
-Refresh the page in the browser to see the new color.
+Refresh the page in the browser to see the new color, some of the time
 
 {{TRAFFIC_HOST1_81}}
 
@@ -202,3 +195,18 @@ vi ~/demo-chart/templates/deployment.yaml
 helm upgrade my-release demo-chart -n demo --set replicas=color=yellow
 ```{{copy}}
 
+<details><summary></summary>
+
+Now the pods will be restarted automatically when the configmap changes.
+
+```bash
+kubectl get pods -n demo
+```{{copy}}
+
+and the page will be yellow.
+
+``bash
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
+
+{{TRAFFIC_HOST1_81}}
