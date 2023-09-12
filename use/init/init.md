@@ -1,3 +1,2 @@
 
-Helm has already been installed.
-Learn how to use it by completing some challenges with provided solutions.
+This is a live demo of creating a Helm chart and deploying it to Kubernetes.

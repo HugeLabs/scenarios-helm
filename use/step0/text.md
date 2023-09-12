@@ -42,11 +42,6 @@ Let's take a look at the environment we'll be working in.
 
 <details><summary></summary>
 
-## Kubernetes
-
-Inspect the Kubernetes cluster.
-
-
 ### Cluster Nodes
 
 List the nodes available in the cluster:
