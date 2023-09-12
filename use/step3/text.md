@@ -87,6 +87,7 @@ vi demo-chart/templates/configmap.yaml
 
 <details><summary></summary>
 
+<!--
 ### service.yaml
 
 Update 'service.yaml' file to use 'port' from 'values.yaml'.
@@ -100,6 +101,7 @@ vi demo-chart/templates/service.yaml
 ```{{copy}}
 
 <details><summary></summary>
+-->
 
 Put defaults for those values into values.yaml
 
@@ -108,7 +110,6 @@ Put defaults for those values into values.yaml
 cat << EOF > demo-chart/values.yaml
 replicas: 1
 color: teal
-port: 81
 EOF
 ```{{exec}}
 
@@ -167,9 +168,9 @@ kubectl get services -n demo
 Forward the port to access the service.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 8081:8081
 ```{{exec}}
 
 Link to the service in the browser:
 
-{{TRAFFIC_HOST1_81}}
+{{TRAFFIC_HOST1_8081}}

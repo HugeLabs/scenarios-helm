@@ -12,10 +12,6 @@
         "text": "step1/text.md"
       },
       {
-        "title": "Create a helm chart with helm create",
-        "text": "step2/text.md"
-      },
-      {
         "title": "Creating a helm chart from scratch",
         "text": "step3/text.md"
       },

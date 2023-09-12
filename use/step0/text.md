@@ -57,6 +57,7 @@ kubectl get nodes
 The Kubernetes cluster is running on a single node.
 -->
 
+<!-- nah
 <details><summary></summary>
 
 
@@ -67,6 +68,8 @@ Pods running in the cluster:
 ```bash
 kubectl get pods --all-namespaces
 ```{{copy}}
+
+-->
 <!-- Speaker script:
 This is a minimal demo environment so there is not much running here, but is fully functional and we can use it to demonstrate Helm.
 -->

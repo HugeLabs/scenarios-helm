@@ -20,13 +20,15 @@ Namespaces are a way to group resources in Kubernetes. They are a way to organiz
 
 ```bash
 kubectl create namespace pre-demo
-```{{copy}}
+```{{exec}}
 
+
+<!-- nah
 Verify it was created.
 
 ```bash
 kubectl get namespace
-```{{copy}}
+```{{exec}}
 
 <!-- Speaker script:
 This is where we'll deploy the service.
@@ -47,8 +49,8 @@ We have a spec directory that contains the YAML files that define our service. W
 -->
 
 ```bash
-ls /root/spec
-```{{copy}}
+ls ~/spec
+```{{exec}}
 
 <details><summary></summary>
 
@@ -59,8 +61,8 @@ Let's look at the YAML files that defines our "application".
 
 
 ```bash
-cat /root/spec/deployment.yaml
-```{{copy}}
+cat ~/spec/deployment.yaml
+```{{exec}}
 
 
 <!-- Speaker script:
@@ -73,18 +75,18 @@ This is a deployment that will run an Nginx container. It will run one replica o
 
 
 ```bash
-cat /root/spec/service.yaml
-```{{copy}}
+cat ~/spec/service.yaml
+```{{exec}}
 
 
 <!-- Speaker script:
-This is a service that will expose the Nginx pods in the deployment. The service will be exposed on port 80. It will forward traffic to port 8001 on the pods.
+This is a service that will expose the Nginx pods in the deployment. The service will be exposed on port 8081. It will forward traffic to port 808101 on the pods.
 -->
 <details><summary></summary>
 
 ```bash
-cat /root/spec/configmap.yaml
-```{{copy}}
+cat ~/spec/configmap.yaml
+```{{exec}}
 
 <!-- Speaker script:
 Here we define the static content that the Nginx container will serve.
@@ -101,8 +103,8 @@ Now we deploy the service from the spec. We'll use the `kubectl apply` command t
 Deploy the service from the YAML files in the spec directory.
 
 ```bash
-kubectl apply -f /root/spec/ -n pre-demo
-```{{copy}}
+kubectl apply -f ~/spec/ -n pre-demo
+```{{exec}}
 
 <details><summary></summary>
 
@@ -111,12 +113,12 @@ kubectl apply -f /root/spec/ -n pre-demo
 Here we find the service and deployment.
 
 <!-- Speaker script:
-A quick check to make sure that the service and deployment were created. We can see that the service is exposed on port 80. The deployment has one replica and is ready to serve traffic. We can also see that the pod is running on the node that we're connected to.
+A quick check to make sure that the service and deployment were created. We can see that the service is exposed on port 8081. The deployment has one replica and is ready to serve traffic. We can also see that the pod is running on the node that we're connected to.
 -->
 
 ```bash
 kubectl get all -n pre-demo
-```{{copy}}
+```{{exec}}
 
 <!-- Speaker script:
 Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The configmap we created is here, but we do need to lookfor it specifically.
@@ -129,7 +131,7 @@ Note that in kubectl, "get all" doesn't actually get all resources. It gets seve
 
 ```bash
 kubectl get configmap -n pre-demo
-```{{copy}}
+```{{exec}}
 
 <details><summary></summary>
 
@@ -138,11 +140,11 @@ kubectl get configmap -n pre-demo
 Now, let's expose the service so that we can access it from the browser:
 
 ```bash
-kubectl port-forward -n pre-demo --address 0.0.0.0 service/demo-service 80:80 &
-```{{copy}}
+kubectl port-forward -n pre-demo --address 0.0.0.0 service/demo-service 8081:8081 &
+```{{exec}}
 
 <!-- Speaker script:
-Here we use the `kubectl port-forward` command to expose the service on port 80 of the node that we're connected to. This command will run in the background.
+Here we use the `kubectl port-forward` command to expose the service on port 8081 of the node that we're connected to. This command will run in the background.
 -->
 
 
@@ -151,12 +153,12 @@ Here we use the `kubectl port-forward` command to expose the service on port 80 
 
 Explore the service in the browser:
 
-This is a link to port 80 of the node that we're connected to:
+This is a link to port 8081 of the node that we're connected to:
 
-{{TRAFFIC_HOST1_80}}
+{{TRAFFIC_HOST1_8081}}
 
 <!-- Speaker script:
-Here we can see that the service is running and serving our page. We can also see that the service is exposed on port 80 of the node that we're connected to.
+Here we can see that the service is running and serving our page. We can also see that the service is exposed on port 8081 of the node that we're connected to.
 -->
 
 <details><summary></summary>
@@ -176,11 +178,13 @@ Delete the service:
 
 ```bash
 kubectl delete namespace pre-demo
-```{{copy}}
+```{{exec}}
 
 <!-- Speaker script:
 We'll delete the namespace that we created. This will delete all of the resources that we created in that namespace.
 -->
+
+<!-- nah
 <details><summary></summary>
 
 ### Verify
@@ -189,7 +193,7 @@ Check to see it's gone:
 
 ```bash
 kubectl get namespace
-```{{copy}}
+```{{exec}}
 
 <!-- Speaker script:
 We can see that the namespace was deleted.
@@ -201,4 +205,4 @@ We can see that the namespace was deleted.
 
 ```bash
 cd ~
-```{{copy}}
+```{{exec}}

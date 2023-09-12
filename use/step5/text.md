@@ -8,6 +8,7 @@
 Our Helm chart is just a collection of files that describe a set of kubernetes resources, and some values that can be used to configure them.
 -->
 
+<!-- nah
 <details><summary></summary>
 
 * How to create a helm chart with helm create
@@ -70,3 +71,8 @@ I appreciate the time you've given me today. I'm love talking about this stuff.
 
 ## Questions
 
+<details><summary></summary>
+
+Here is a picture of my cat
+
+![cat](image.png)

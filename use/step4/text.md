@@ -14,6 +14,7 @@ Now that we have a Helm chart, we can modify it to customize the service. We can
 
 We will change the number of replicas in the deployment by changing the value in the `values.yaml` file.
 
+<!-- nah
 <details><summary></summary>
 
 #### How many replicas?
@@ -23,6 +24,7 @@ Observe the initial number of replicas in the deployment.
 ```bash
 kubectl get pods -n demo
 ```{{exec}}
+-->
 
 <details><summary></summary>
 
@@ -43,9 +45,7 @@ Apply the changes by upgrading the release.
 helm upgrade my-release demo-chart -n demo
 ```{{exec}}
 
-<details><summary></summary>
-
-#### Check result
+### Check result
 
 Check for new pods.
 
@@ -71,8 +71,6 @@ We can override the values in the `values.yaml` file at the command line when we
 helm upgrade my-release demo-chart -n demo --set replicas=5
 ```{{exec}}
 
-<details><summary></summary>
-
 #### Check result
 
 <!-- speaker script:
@@ -93,10 +91,10 @@ kubectl get pods -n demo
 Lets have another look at our web page before we continue.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 8081:8081
 ```{{exec}}
 
-{{TRAFFIC_HOST1_81}}
+{{TRAFFIC_HOST1_8081}}
 
 <details><summary></summary>
 
@@ -105,7 +103,20 @@ kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 Let's change the color of the page by overriding the color when we deploy the chart.
 -->
 
+
+
+
 Let's change the color.
+
+
+```text
+helm upgrade my-release demo-chart -n demo --set color=yellow
+```
+
+(spoiler, this won't work yet. in the interest of time, please pretend with me that we made this change and nothing happened.)
+
+
+<!-- nah
 
 ```bash
 helm upgrade my-release demo-chart -n demo --set color=yellow
@@ -118,10 +129,10 @@ helm upgrade my-release demo-chart -n demo --set color=yellow
 Refresh the page in the browser to see the new color.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 8081:8081
 ```{{exec}}
 
-{{TRAFFIC_HOST1_81}}
+{{TRAFFIC_HOST1_8081}}
 
 <details><summary></summary>
 
@@ -133,9 +144,13 @@ why is the color not changing?
 The reason the color is not changing is because the deployment is not being updated. The deployment is not being updated because nothing in the deployment changed. The deployment is not being updated because the color is not part of the deployment. The color is part of the configmap.
 -->
 
+### Uh-oh
+
+why is the color not changing?
+
 <details><summary></summary>
 
-#### Deployment did not change
+#### Deployment will not change
 
 The content is in the configmap and not the deployment. Nothing changed in the deployment.
 
@@ -153,22 +168,22 @@ we can kill the pods and when they restart they will pick up the new configmap.
 
 #### Annotation
 
+A better solution is to include a checksum of the resource in the deployment as an annotation.
+
+When the resource changes, the checksum will change and the deployment will be updated.
+
+<!--
 But we can do better than that and automate this so that the pods are restarted automatically when the configmap changes.
 
 We'll calculate a checksum of the configmap and add it to the deployment as an annotation. The deployment controller will see the change and restart the pods.
-
+-->
 <details><summary></summary>
 
 ### Making the annotation
 
-Here is the code that calculates the checksum:
+The checksum is just a sha256 of the configmap, after it has been rendered by the helm template engine, so variable changes will count too.
 
-```text
-{{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-```{{copy}}
-
-We can add the checksum to the deployment like in this location:
-
+This is where it goes in the deployment:
 
 ```text
 spec:
@@ -217,12 +232,12 @@ kubectl get pods -n demo
 and the page will be yellow.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 8081:8081
 ```{{exec}}
 
 #### Review the page
 
-{{TRAFFIC_HOST1_81}}
+{{TRAFFIC_HOST1_8081}}
 
 <details><summary></summary>
 
@@ -248,8 +263,8 @@ helm upgrade my-release demo-chart -n demo --set color=lightblue
 ### View the result
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 8081:8081
 ```{{exec}}
 
-{{TRAFFIC_HOST1_81}}
+{{TRAFFIC_HOST1_8081}}
 
