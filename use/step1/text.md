@@ -155,8 +155,6 @@ This is a link to port 80 of the node that we're connected to:
 
 {{TRAFFIC_HOST1_80}}
 
-[look at the cat]({{TRAFFIC_HOST1_80}})
-
 <!-- Speaker script:
 Here we can see that the service is running and serving our page. We can also see that the service is exposed on port 80 of the node that we're connected to.
 -->
@@ -196,3 +194,11 @@ kubectl get namespace
 <!-- Speaker script:
 We can see that the namespace was deleted.
 -->
+
+<details><summary></summary>
+
+### get back out of the spec directory
+
+```bash
+cd ~
+```{{copy}}
