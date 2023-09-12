@@ -17,7 +17,7 @@ done
 # create the Chart.yaml and values.yaml files
 cat <<EOF > /root/demo-chart/Chart.yaml
 apiVersion: v2
-type: application
+name: demo-chart
 version: 0.1.0
 EOF
 
@@ -26,3 +26,9 @@ replicas: 1
 color: blue
 port: 80
 EOF
+
+# create the namespace
+kubectl create namespace helm-demo
+
+#release the chart
+helm install my-release demo-chart -n helm-demo
