@@ -20,7 +20,7 @@ kubectl get pods -n helm-demo
 
 <details><summary></summary>
 
-Change the number of replicas to 5 by modifying the `values.yaml` file.
+Change the number of replicas to 3 by modifying the `values.yaml` file.
 
 ```bash
 vi demo-chart/values.yaml
@@ -31,7 +31,7 @@ vi demo-chart/values.yaml
 Apply the changes to the Helm chart.
 
 ```bash
-helm upgrade my-release my-chart -n helm-demo
+helm upgrade my-release demo-chart -n helm-demo
 ```{{copy}}
 
 <details><summary></summary>
@@ -57,7 +57,7 @@ Another way to customize the Helm chart is to override the values in the `values
 We can override the values in the `values.yaml` file at the command line when we deploy the chart.
 
 ```bash
-helm install my-release my-chart --set replicas=2 -n helm-demo
+helm upgrade my-release demo-chart -n helm-demo --set replicas=5
 ```{{copy}}
 
 <details><summary></summary>
