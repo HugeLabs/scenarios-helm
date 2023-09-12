@@ -85,8 +85,8 @@ jobs
 if not, we can restart it.
 
 ```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81 &
-```{{copy}}
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
 
 Now we can refresh the page in the browser.
 
@@ -147,6 +147,17 @@ kubectl delete pod <pod-name> -n demo
 ```{{copy}}
 
 <details><summary></summary>
+
+check again to see that the pod was replaced.
+
+```bash
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
+
+Refresh the page in the browser to see the new color.
+
+{{TRAFFIC_HOST1_81}}
+
 
 But we can do a little better and automate this so that the pods are restarted automatically when the configmap changes.
 
