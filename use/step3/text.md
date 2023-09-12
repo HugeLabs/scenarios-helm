@@ -79,15 +79,15 @@ Update 'service.yaml' file to use the values from 'values.yaml'.
 vi templates/service.yaml
 ```{{exec}}
 
-<!-- note: below is a bash/sed script to replace the values in the files.
+<details><summary></summary>
 
-```bash
-for file in templates/*; do
-  sed -i 's/replicas: .*/replicas: {{ .Values.replicas }}/g' $file
-  sed -i 's/color: .*/color: {{ .Values.color }}/g' $file
-  sed -i 's/port: .*/port: {{ .Values.port }}/g' $file
-done
-```{{exec}}
+That's it.
+
+<!-- speaker script:
+We've created a minimum viable Helm chart.
+-->
+
+<details><summary></summary>
 
 ### Deploy Helm Chart
 

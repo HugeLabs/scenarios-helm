@@ -93,7 +93,5 @@ What is Helm doing right now?
 helm ls --all-namespaces
 ```{{copy}}
 
-<details><summary></summary>
-
 <!-- Speaker script:
 We can see that Helm is installed and configured to use the Kubernetes cluster.

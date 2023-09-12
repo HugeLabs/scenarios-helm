@@ -153,7 +153,7 @@ Explore the service in the browser:
 
 This is a link to port 80 of the node that we're connected to:
 
-{{80}}
+{{TRAFFIC_HOST1_80}}
 
 [look at the cat]({{TRAFFIC_HOST1_80}})
 
@@ -169,6 +169,9 @@ Here we can see that the service is running and serving our page. We can also se
 Now that we've seen the service running, let's clean up the resources we created.
 -->
 
+Now that we've seen what we are about to deploy, let's clean up and deploy with helm.
+<details><summary></summary>
+
 ### Delete
 
 Delete the service:
@@ -180,6 +183,7 @@ kubectl delete namespace demo
 <!-- Speaker script:
 We'll delete the namespace that we created. This will delete all of the resources that we created in that namespace.
 -->
+<details><summary></summary>
 
 ### Verify
 
