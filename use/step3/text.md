@@ -8,7 +8,6 @@ First, let's create a new directory for our Helm chart and navigate into it.
 
 ```bash
 mkdir demo-chart
-cd demo-chart
 ```{{copy}}
 
 ### Create Chart Structure
@@ -16,7 +15,7 @@ cd demo-chart
 Inside your Helm chart folder, create the following directories and files:
 
 ```bash
-mkdir templates
+mkdir demo-chart/templates
 ```{{copy}}
 
 ### Copy YAML files
@@ -24,9 +23,9 @@ mkdir templates
 Copy the existing 'deployment.yaml', 'service.yaml', and 'pvc.yaml' files from '/root/spec' into the 'templates' directory.
 
 ```bash
-cp /root/spec/deployment.yaml templates/deployment.yaml
-cp /root/spec/service.yaml templates/service.yaml
-cp /root/spec/configmap.yaml templates/configmap.yaml
+cp /root/spec/deployment.yaml demo-chart/templates/deployment.yaml
+cp /root/spec/service.yaml demo-chart/templates/service.yaml
+cp /root/spec/configmap.yaml demo-chart/templates/configmap.yaml
 
 ```{{copy}}
 
@@ -39,7 +38,7 @@ The Chart.yaml file contains metadata about the chart, including the name, versi
 -->
 
 ```bash
-cat << EOF > Chart.yaml
+cat << EOF > demo-chart/Chart.yaml
 apiVersion: v2
 name: demo-chart
 version: 0.1.0
@@ -56,7 +55,7 @@ Update 'deployment.yaml' file to use the values from 'values.yaml'.
 Update 'deployment.yaml' file to use 'replicas' from 'values.yaml'.
 
 ```bash
-vi templates/deployment.yaml
+vi demo-chart/templates/deployment.yaml
 ```{{copy}}
 
 ```yaml
@@ -71,7 +70,7 @@ vi templates/deployment.yaml
 Update 'configmap.yaml' file to use 'color' from 'values.yaml'.
 
 ```bash
-vi templates/configmap.yaml
+vi demo-chart/templates/configmap.yaml
 ```{{copy}}
 
 ```yaml
@@ -85,7 +84,7 @@ vi templates/configmap.yaml
 Update 'service.yaml' file to use 'port' from 'values.yaml'.
 
 ```bash
-vi templates/service.yaml
+vi demo-chart/templates/service.yaml
 ```{{copy}}
 
 ```yaml
@@ -98,7 +97,7 @@ Put defaults for those values into values.yaml
 
 
 ```bash
-cat << EOF > values.yaml
+cat << EOF > demo-chart/values.yaml
 replicas: 1
 color: teal
 port: 81
@@ -128,7 +127,7 @@ kubectl create namespace helm-demo
 
 
 ```bash
-helm install my-release . -n helm-demo
+helm install my-release demo-chart -n helm-demo
 ```{{copy}}
 
 ### Verify Deployment
@@ -151,13 +150,9 @@ Forward the port to access the service.
 kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
 ```{{copy}}
 
-Link to the service in the browser.
+Link to the service in the browser:
 
 {{TRAFFIC_HOST1_81}}
-
-[a link to the thing]({{TRAFFIC_HOST1_81}})
-
-
 
 ### Access the Service
 
