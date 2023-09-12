@@ -8,7 +8,7 @@ mkdir -p /root/my-helm-chart/templates
 cp -r /root/spec /root/my-helm-chart/templates
 
 # replace the values in the spec files
-for file in templates/*; do
+for file in /root/my-helm-chart/templates/*; do
   sed -i 's/replicaCount: .*/replicaCount: {{ .Values.replicaCount }}/g' $file
   sed -i 's/backgroundColor: .*/backgroundColor: {{ .Values.backgroundColor }}/g' $file
   sed -i 's/port: .*/port: {{ .Values.port }}/g' $file
