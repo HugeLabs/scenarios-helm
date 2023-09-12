@@ -1,6 +1,10 @@
-## Customize the service
+### Customize the service
+
+Time to iterate!
 
 Let's make some changes to the installed service.
+
+<details><summary></summary>
 
 ### Modify the Helm Chart
 
@@ -12,6 +16,8 @@ We will change the number of replicas in the deployment by changing the value in
 
 <details><summary></summary>
 
+#### How many replicas?
+
 Observe the initial number of replicas in the deployment.
 
 ```bash
@@ -19,6 +25,8 @@ kubectl get pods -n demo
 ```{{exec}}
 
 <details><summary></summary>
+
+#### Modify values.yaml
 
 Change the number of replicas to 3 by modifying the `values.yaml` file.
 
@@ -33,6 +41,8 @@ helm upgrade my-release demo-chart -n demo
 ```{{exec}}
 
 <details><summary></summary>
+
+#### Check result
 
 Check for new pods.
 
@@ -60,6 +70,11 @@ helm upgrade my-release demo-chart -n demo --set replicas=5
 
 <details><summary></summary>
 
+#### Check result
+
+<!-- speaker script:
+Notice that the number of replicas changed.
+-->
 
 Check that the number of replicas changed.
 
@@ -68,8 +83,6 @@ kubectl get pods -n demo
 ```{{exec}}
 
 <details><summary></summary>
-
-
 
 
 ### Changing the content
@@ -95,7 +108,9 @@ Let's change the color.
 helm upgrade my-release demo-chart -n demo --set color=yellow
 ```{{exec}}
 
-### verify the change
+<details><summary></summary>
+
+### Verify the change
 
 Refresh the page in the browser to see the new color.
 
@@ -117,13 +132,23 @@ The reason the color is not changing is because the deployment is not being upda
 
 <details><summary></summary>
 
+#### Deployment did not change
+
 The content is in the configmap and not the deployment. Nothing changed in the deployment.
 
 To get the change to apply, we need to restart the pods.
 
+<details><summary></summary>
+
+#### "restarting"
+
 In kubernetes, 'restart' is a euphemism for killing. The pods will be replaced automatically.
 
 we can kill the pods and when they restart they will pick up the new configmap.
+
+<details><summary></summary>
+
+#### Annotation
 
 But we can do better than that and automate this so that the pods are restarted automatically when the configmap changes.
 
@@ -131,7 +156,9 @@ We'll calculate a checksum of the configmap and add it to the deployment as an a
 
 <details><summary></summary>
 
-here is the code that calculates the checksum:
+### Making the annotation
+
+Here is the code that calculates the checksum:
 
 ```text
 {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
@@ -148,7 +175,11 @@ spec:
         checksum/config:
 ```
 
-for convenience, here's just the annotations section so we can paste it in.
+<details><summary></summary>
+
+#### Put it in the deployment
+
+For convenience, here is just the annotations section so we can paste it in.
 
 ```text
       annotations:
@@ -170,7 +201,11 @@ helm upgrade my-release demo-chart -n demo --set color=yellow
 
 <details><summary></summary>
 
+#### Check result
+
 Now the pods will be restarted automatically when the configmap changes.
+
+
 
 ```bash
 kubectl get pods -n demo
@@ -182,11 +217,15 @@ and the page will be yellow.
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
 
+#### Review the page
+
 {{TRAFFIC_HOST1_81}}
 
 <details><summary></summary>
 
-now let's give the cat a ball of string
+### Changing the content
+
+We can also change the content of the page by changing the configmap, and the pods will be restarted automatically.
 
 ```bash
 vi ~/demo-chart/templates/configmap.yaml
@@ -201,10 +240,13 @@ vi ~/demo-chart/templates/configmap.yaml
 helm upgrade my-release demo-chart -n demo --set color=lightblue
 ```{{exec}}
 
+<details><summary></summary>
+
+### View the result
+
 ```bash
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
 
 {{TRAFFIC_HOST1_81}}
 
-perfect.

@@ -17,7 +17,7 @@ First, let's initialize a new Helm chart.
 
 
 ```bash
-helm create demo-chart-from-create
+helm create newchart
 ```{{exec}}
 
 <!-- Speaker script:
@@ -33,7 +33,7 @@ Let's take a look at the files that were created.
 ``
 
 ```bash
-find demo-chart-from-create
+find newchart
 ```{{exec}}
 
 <!-- Speaker script:
@@ -43,11 +43,11 @@ There are, like, a lot of files here, and if we look in a few of them, a whole l
 
 <details><summary></summary>
 
-### nope
+## nope
 
 The helm create command is useful and actually easy to use, and it creates a good template. But we're going to disregard it for our minimum viable chart.
 
 ```
-rm -r demo-chart-from-create
+rm -r newchart
 ```{{exec}}
 

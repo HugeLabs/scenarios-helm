@@ -20,8 +20,12 @@
         "text": "step3/text.md"
       },
       {
-        "title": "Modify the helm chart",
+        "title": "Iterate and customize",
         "text": "step4/text.md"
+      },
+      {
+        "title": "Summary",
+        "text": "step5/text.md"
       }
     ],
     "finish": {

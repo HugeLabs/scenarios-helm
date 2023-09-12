@@ -1,6 +1,8 @@
-### Minimum viable Helm chart
+### Minimum Viable Helm Chart
 
 In this step, we'll create a Helm chart to manage our Nginx service. We'll use the existing YAML files in '/root/spec' as a starting point for our Helm chart templates.
+
+<details><summary></summary>
 
 ### Create Helm Chart from Scratch
 
@@ -10,6 +12,8 @@ First, let's create a new directory for our Helm chart and navigate into it.
 mkdir demo-chart
 ```{{exec}}
 
+<details><summary></summary>
+
 ### Create Chart Structure
 
 Inside your Helm chart folder, create the following directories and files:
@@ -17,6 +21,8 @@ Inside your Helm chart folder, create the following directories and files:
 ```bash
 mkdir demo-chart/templates
 ```{{exec}}
+
+<details><summary></summary>
 
 ### Copy YAML files
 
@@ -28,6 +34,8 @@ cp /root/spec/service.yaml demo-chart/templates/service.yaml
 cp /root/spec/configmap.yaml demo-chart/templates/configmap.yaml
 
 ```{{exec}}
+
+<details><summary></summary>
 
 ### Create Chart Metadata
 
