@@ -10,8 +10,6 @@ Now that we have a Helm chart, we can modify it to customize the service. We can
 
 We will change the number of replicas in the deployment by changing the value in the `values.yaml` file.
 
-```bash
-
 <details><summary></summary>
 
 Observe the initial number of replicas in the deployment.

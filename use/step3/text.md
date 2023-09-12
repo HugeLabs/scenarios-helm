@@ -7,8 +7,8 @@ In this step, we'll create a Helm chart to manage our Nginx service. We'll use t
 First, let's create a new directory for our Helm chart and navigate into it.
 
 ```bash
-mkdir my-helm-chart
-cd my-helm-chart
+mkdir demo-chart
+cd demo-chart
 ```{{copy}}
 
 ### Create Chart Structure
@@ -41,7 +41,7 @@ The Chart.yaml file contains metadata about the chart, including the name, versi
 ```bash
 cat << EOF > Chart.yaml
 apiVersion: v2
-name: my-helm-chart
+name: demo-chart
 version: 0.1.0
 EOF
 ```{{copy}}
@@ -149,7 +149,7 @@ kubectl get services -n helm-demo
 Forward the port to access the service.
 
 ```bash
-kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-chart 81:81 &
+kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-service 81:81 &
 ```{{copy}}
 
 Link to the service in the browser.
