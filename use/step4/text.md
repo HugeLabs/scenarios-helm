@@ -188,6 +188,6 @@ vi ~/demo-chart/templates/deployment.yaml
 
 
 ```bash
-helm upgrade my-release demo-chart -n demo --set color=yellow
+helm upgrade my-release demo-chart -n demo --set replicas=color=yellow
 ```{{copy}}
 
