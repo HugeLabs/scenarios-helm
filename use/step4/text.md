@@ -148,27 +148,13 @@ kubectl delete pod <pod-name> -n helm-demo
 
 <details><summary></summary>
 
-Or we can use the deployment to kill the pods.
-
-```bash
-kubectl rollout restart deployment/demo-deployment -n helm-demo
-```{{copy}}
-
-What this does is change an annotation in the deployment with a timestamp. The deployment controller sees the change and kills the pods one-at-a-time. The pods are replaced automatically.
-
-<details><summary></summary>
-
 But we can do a little better and automate this so that the pods are restarted automatically when the configmap changes.
 
 We'll calculate a checksum of the configmap and add it to the deployment as an annotation. The deployment controller will see the change and restart the pods.
 
-```bash
-shasum -a 256 templates/configmap.yaml
-```{{copy}}
-
 <details><summary></summary>
 
-This calculates a checksum of the configmap.
+here is the code that calculates the checksum:
 
 ```text
 {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
@@ -192,19 +178,16 @@ for convenience, here's just the annotations section so we can paste it in.
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
 ```{{copy}}
 
-```text
-{{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-```{{copy}}
 
 
 ```bash
-vi templates/deployment.yaml
-```{{copy}}
+vi ~/demo-chart/templates/deployment.yaml
+```{{exec}}
 
 
 
 
 ```bash
-helm upgrade my-release demo-chart --set color=yellow -n helm-demo
+helm upgrade my-release demo-chart -n helm-demo --set color=yellow
 ```{{copy}}
 
