@@ -99,7 +99,7 @@ helm upgrade my-release demo-chart -n demo --set color=yellow
 
 Refresh the page in the browser to see the new color.
 
-``bash
+```bash
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
 
