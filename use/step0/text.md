@@ -55,7 +55,7 @@ I've heard it pronounced "kube control" and "kube cuddle", or kube-c-t-l. But at
 
 ```bash
 kubectl get nodes
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 The Kubernetes cluster is running on a single node.
@@ -70,24 +70,36 @@ Pods running in the cluster across all namespaces:
 
 ```bash
 kubectl get pods --all-namespaces
-```{{exec}}
+```{{copy}}
 <!-- Speaker script:
 This is a minimal demo environment so there is not much running here, but is fully functional and we can use it to demonstrate Helm.
 -->
 
 <details><summary></summary>
 
-## Helm
+### Helm
 
-Verify helm is installed and running.
-
-### Helm Version
-
-Get the version of Helm installed:
+Verify that Helm is installed and configured to use the Kubernetes cluster:
 
 ```bash
 helm version
-```{{exec}}
+```{{copy}}
+
+<details><summary></summary>
+
+Hello, Helm!
+
+### List helm releases
+
+What is Helm doing right now?
+
+```bash
+helm ls --all-namespaces
+```{{copy}}
+
+<details><summary></summary>
+
+
 
 <!-- Speaker script:
 We can see that Helm is installed and configured to use the Kubernetes cluster.
@@ -100,7 +112,7 @@ List the Helm releases installed in the cluster:
 
 ```bash
 helm ls --all-namespaces
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 None yet. This is the basic environment we'll be working in. Now let's put an application on this cluster.

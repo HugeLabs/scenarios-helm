@@ -52,7 +52,7 @@ EOF
 Update 'deployment.yaml' file to use the values from 'values.yaml'.
 
 ```yaml
-{{ .Values.replicaCount }}
+{{ .Values.replicas }}
 ```{{copy}}
 
 ```bash
@@ -60,7 +60,7 @@ vi templates/deployment.yaml
 ```{{exec}}
 
 ```yaml
-{{ .Values.backgroundColor }}
+{{ .Values.color }}
 ```{{copy}}
 
 Update 'configmap.yaml' file to use the values from 'values.yaml'.
@@ -83,8 +83,8 @@ vi templates/service.yaml
 
 ```bash
 for file in templates/*; do
-  sed -i 's/replicaCount: .*/replicaCount: {{ .Values.replicaCount }}/g' $file
-  sed -i 's/backgroundColor: .*/backgroundColor: {{ .Values.backgroundColor }}/g' $file
+  sed -i 's/replicas: .*/replicas: {{ .Values.replicas }}/g' $file
+  sed -i 's/color: .*/color: {{ .Values.color }}/g' $file
   sed -i 's/port: .*/port: {{ .Values.port }}/g' $file
 done
 ```{{exec}}

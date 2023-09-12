@@ -9,8 +9,8 @@ cp -r /root/spec /root/my-helm-chart/templates
 
 # replace the values in the spec files
 for file in /root/my-helm-chart/templates/*; do
-  sed -i 's/replicaCount: .*/replicaCount: {{ .Values.replicaCount }}/g' $file
-  sed -i 's/backgroundColor: .*/backgroundColor: {{ .Values.backgroundColor }}/g' $file
+  sed -i 's/replicas: .*/replicas: {{ .Values.replicas }}/g' $file
+  sed -i 's/color: .*/color: {{ .Values.color }}/g' $file
   sed -i 's/port: .*/port: {{ .Values.port }}/g' $file
 done
 
@@ -22,7 +22,7 @@ version: 0.1.0
 EOF
 
 cat <<EOF > /root/my-helm-chart/values.yaml
-replicaCount: 1
-backgroundColor: blue
+replicas: 1
+color: blue
 port: 8080
 EOF
