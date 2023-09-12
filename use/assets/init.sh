@@ -20,3 +20,6 @@ rm -rf linux-amd64 helm-v3.8.2-linux-amd64.tar.gz
 
 # mark init finished
 touch /ks/.initfinished
+
+
+echo 'export PS1="\u@\h \w \$ "' >> ~/.bashrc
