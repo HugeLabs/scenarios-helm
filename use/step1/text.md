@@ -38,7 +38,7 @@ This is where we'll deploy the service.
 Let's take a look at the YAML files that define our service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so, of course, I will use the cat command here.
 -->
 
-### the plan
+### The plan
 
 We will deploy the service from YAML specification files in the spec directory.
 
