@@ -38,7 +38,9 @@ This is where we'll deploy the service.
 Let's take a look at the YAML files that define our service. I've learned last year's conference that including cats in your presentation is well recieved with this crowd, so, of course, I will use the cat command here.
 -->
 
-<!-- TODO: intrduce the idea that we're going to deploy a service from a YAML spec. -->
+### the plan
+
+We will deploy the service from YAML specification files in the spec directory.
 
 <!-- Speaker script:
 We have a spec directory that contains the YAML files that define our service. We have a deployment, a service, and a configmap. We'll look at each of these in turn.
@@ -53,7 +55,8 @@ ls /root/spec
 
 ### Inspect the YAML spec
 
-View the YAML file that defines our service.
+Let's look at the YAML files that defines our "application".
+
 
 ```bash
 cat /root/spec/deployment.yaml
@@ -68,6 +71,7 @@ This is a deployment that will run an Nginx container. It will run one replica o
 <details><summary></summary>
 
 
+
 ```bash
 cat /root/spec/service.yaml
 ```{{exec}}
@@ -76,13 +80,11 @@ cat /root/spec/service.yaml
 <!-- Speaker script:
 This is a service that will expose the Nginx pods in the deployment. The service will be exposed on port 80. It will forward traffic to port 8001 on the pods.
 -->
+<details><summary></summary>
 
 ```bash
 cat /root/spec/configmap.yaml
 ```{{exec}}
-
-
-
 
 <!-- Speaker script:
 Here we define the static content that the Nginx container will serve.
