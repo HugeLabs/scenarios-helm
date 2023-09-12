@@ -30,17 +30,13 @@ cp /root/spec/configmap.yaml templates/configmap.yaml
 
 ```{{exec}}
 
-### Create values.yaml
+### Create Chart Metadata
 
-Edit the 'values.yaml' file in your Helm chart directory to match your specific needs. For example, you can specify the image and tag you want to use.
+Create a 'Chart.yaml' file for the Helm chart's metadata.
 
-```bash
-cat << EOF > values.yaml
-backgroundColor: "blue"
-replicaCount: 3
-port: 81
-EOF
-```{{exec}}
+<!-- speaker script:
+The Chart.yaml file contains metadata about the chart, including the name, version, and description. This is the minimum required metadata for a Helm chart.
+-->
 
 ```bash
 cat << EOF > Chart.yaml
@@ -55,12 +51,16 @@ EOF
 
 Update 'deployment.yaml' file to use the values from 'values.yaml'.
 
+```yaml
+{{ .Values.replicaCount }}
+```{{copy}}
+
 ```bash
 vi templates/deployment.yaml
 ```{{exec}}
 
 ```yaml
-{{ .Values.replicaCount }}
+{{ .Values.backgroundColor }}
 ```{{copy}}
 
 Update 'configmap.yaml' file to use the values from 'values.yaml'.
@@ -69,20 +69,25 @@ Update 'configmap.yaml' file to use the values from 'values.yaml'.
 vi templates/configmap.yaml
 ```{{exec}}
 
-```yaml
-{{ .Values.backgroundColor }}
-```{{copy}}
-
 Update 'service.yaml' file to use the values from 'values.yaml'.
-
-```bash
-vi templates/service.yaml
-```{{exec}}
 
 ```yaml
 {{ .Values.port }}
 ```{{copy}}
 
+```bash
+vi templates/service.yaml
+```{{exec}}
+
+<!-- note: below is a bash/sed script to replace the values in the files.
+
+```bash
+for file in templates/*; do
+  sed -i 's/replicaCount: .*/replicaCount: {{ .Values.replicaCount }}/g' $file
+  sed -i 's/backgroundColor: .*/backgroundColor: {{ .Values.backgroundColor }}/g' $file
+  sed -i 's/port: .*/port: {{ .Values.port }}/g' $file
+done
+```{{exec}}
 
 ### Deploy Helm Chart
 
@@ -116,7 +121,7 @@ kubectl get services -n helm-demo
 Forward the port to access the service.
 
 ```bash
-kubectl port-forward -n helm-demo --address 0.0.0.0 service/my-chart 81:81 &
+kubectl port-forward -n helm-demo --address 0.0.0.0 service/demo-chart 81:81 &
 ```{{exec}}
 
 Link to the service in the browser.
@@ -135,21 +140,3 @@ Finally, let's access the service to make sure everything is working as expected
 curl http://localhost:81
 ```{{exec}}
 
-
-### Upgrade the Helm Chart
-
-```bash
-kubectl get pods -n helm-demo
-```{{exec}}
-
-Upgrade the Helm chart to change the number of replicas to 5.
-
-```bash
-helm upgrade my-release my-chart --set replicaCount=5 -n helm-demo
-```{{exec}}
-
-let's see the new pods
-
-```bash
-kubectl get pods -n helm-demo
-```{{exec}}

@@ -12,12 +12,16 @@
         "text": "step1/text.md"
       },
       {
-        "title": "Creating a helm chart with helm create",
+        "title": "Create a helm chart with helm create",
         "text": "step2/text.md"
       },
       {
         "title": "Creating a helm chart from scratch",
         "text": "step3/text.md"
+      },
+      {
+        "title": "Modify the helm chart",
+        "text": "step4/text.md"
       }
     ],
     "finish": {
@@ -40,7 +44,8 @@
         {"file": "pv.yaml", "target": "/ks"},
         {"file": "spec/configmap.yaml", "target": "/root/spec"},
         {"file": "spec/deployment.yaml", "target": "/root/spec"},
-        {"file": "spec/service.yaml", "target": "/root/spec"}
+        {"file": "spec/service.yaml", "target": "/root/spec"},
+        {"file": "cheat/cheat-step3.sh", "target": "/cheat-step3.sh", "chmod": "+x"}
       ]
     }
   },

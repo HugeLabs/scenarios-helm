@@ -181,7 +181,7 @@ We'll delete the namespace that we created. This will delete all of the resource
 
 ### Verify
 
-Verify that the namespace was deleted:
+Check to see it's gone:
 
 ```bash
 kubectl get namespace
