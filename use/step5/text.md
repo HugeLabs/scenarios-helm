@@ -5,7 +5,7 @@
 * What's a helm chart
 
 <!-- speaker script:
-Our Helm chart just a collection of files that describe a set of kubernetes resources, and some values that can be used to configure them.
+Our Helm chart is just a collection of files that describe a set of kubernetes resources, and some values that can be used to configure them.
 -->
 
 <details><summary></summary>
