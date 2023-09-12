@@ -1,6 +1,6 @@
-### Create a Helm Chart for the Service
+### Create a Helm Chart with helm create
 
-Here we will encapsulate the same service we deployed manually into a Helm chart for easier management and deployment.
+Helm has a command to create a new helm chart. We will try it out. Don't get too attached.
 
 <!-- Speaker script:
 In this step, we'll take the service we deployed manually and encapsulate it into a Helm chart. Helm charts are packages of pre-configured Kubernetes resources, making it easier to manage and deploy applications on Kubernetes clusters.
@@ -12,6 +12,8 @@ In this step, we'll take the service we deployed manually and encapsulate it int
 ### Initialize Helm Chart
 
 First, let's initialize a new Helm chart.
+
+
 
 
 ```bash
