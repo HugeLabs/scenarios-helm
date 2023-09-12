@@ -1,7 +1,7 @@
-## Deploy a Service
+## Basic Service
 
 
-Here is a basic service that we will later wrap in a helm chart.
+We start with a basic service that we will soon wrap in a helm chart.
 
 <!-- Speaker script:
 To start, we'll create a service from a YAML spec. This is a common way to deploy services in Kubernetes. We'll start with a very basic service to wrap in a helm chart. In this case, we'll deploy an Nginx container that will serve static content, but you could just as easily deploy a containerized application.

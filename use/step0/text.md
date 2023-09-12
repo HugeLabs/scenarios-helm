@@ -5,6 +5,8 @@ In this workshop, we are going to create a Helm chart to manage a service. We'll
 
 ## Before we Begin
 
+<details><summary></summary>
+
 ### Intended Audience
 
 Beginners who have not made or customized a Helm chart before.
