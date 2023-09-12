@@ -23,7 +23,7 @@ kubectl get pods -n helm-demo
 Change the number of replicas to 5 by modifying the `values.yaml` file.
 
 ```bash
-vi values.yaml
+vi demo-chart/values.yaml
 ```{{copy}}
 
 <details><summary></summary>
