@@ -125,34 +125,7 @@ In kubernetes, 'restart' is a euphemism for killing. The pods will be replaced a
 
 we can kill the pods and when they restart they will pick up the new configmap.
 
-<details><summary></summary>
-
-Choose one of the pods.
-
-```bash
-kubectl get pods -n demo
-```{{exec}}
-
-Kill the pod.
-
-```bash
-kubectl delete pod <pod-name> -n demo
-```{{exec}}
-
-<details><summary></summary>
-
-check again to see that the pod was replaced.
-
-```bash
-kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
-```{{exec}}
-
-Refresh the page in the browser to see the new color, some of the time
-
-{{TRAFFIC_HOST1_81}}
-
-
-But we can do a little better and automate this so that the pods are restarted automatically when the configmap changes.
+But we can do better than that and automate this so that the pods are restarted automatically when the configmap changes.
 
 We'll calculate a checksum of the configmap and add it to the deployment as an annotation. The deployment controller will see the change and restart the pods.
 
@@ -192,7 +165,7 @@ vi ~/demo-chart/templates/deployment.yaml
 
 
 ```bash
-helm upgrade my-release demo-chart -n demo --set replicas=color=yellow
+helm upgrade my-release demo-chart -n demo --set color=yellow
 ```{{exec}}
 
 <details><summary></summary>
@@ -205,8 +178,33 @@ kubectl get pods -n demo
 
 and the page will be yellow.
 
-``bash
+```bash
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
 ```{{exec}}
 
 {{TRAFFIC_HOST1_81}}
+
+<details><summary></summary>
+
+now let's give the cat a ball of string
+
+```bash
+vi ~/demo-chart/templates/configmap.yaml
+```{{exec}}
+
+```text
+@_
+```{{copy}}
+
+
+```bash
+helm upgrade my-release demo-chart -n demo --color=lightblue
+```{{exec}}
+
+```bash
+kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 81:81
+```{{exec}}
+
+{{TRAFFIC_HOST1_81}}
+
+perfect.
