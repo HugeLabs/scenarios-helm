@@ -41,7 +41,7 @@ The Chart.yaml file contains metadata about the chart, including the name, versi
 ```bash
 cat << EOF > Chart.yaml
 apiVersion: v2
-name: my-chart
+name: my-helm-chart
 version: 0.1.0
 EOF
 ```{{copy}}
@@ -93,6 +93,21 @@ vi templates/service.yaml
 ```{{copy}}
 
 <details><summary></summary>
+
+Put defaults for those values into values.yaml
+
+```bash
+
+```bash
+cat << EOF > values.yaml
+replicas: 1
+color: teal
+port: 81
+EOF
+```{{copy}}
+
+<details><summary></summary>
+
 
 That's it.
 
