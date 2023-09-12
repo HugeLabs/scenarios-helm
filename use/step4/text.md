@@ -26,9 +26,7 @@ Change the number of replicas to 3 by modifying the `values.yaml` file.
 vi demo-chart/values.yaml
 ```{{copy}}
 
-<details><summary></summary>
-
-Apply the changes to the Helm chart.
+Apply the changes by upgrading the release.
 
 ```bash
 helm upgrade my-release demo-chart -n helm-demo
@@ -104,7 +102,7 @@ Let's change the color of the page by overriding the color when we deploy the ch
 Let's change the color.
 
 ```bash
-helm install my-release demo-chart --set color=yellow -n helm-demo
+helm upgrade my-release demo-chart -n helm-demo --set color=yellow
 ```{{copy}}
 
 ### verify the change
@@ -153,7 +151,7 @@ kubectl delete pod <pod-name> -n helm-demo
 Or we can use the deployment to kill the pods.
 
 ```bash
-kubectl rollout restart deployment/demo-chart -n helm-demo
+kubectl rollout restart deployment/demo-deployment -n helm-demo
 ```{{copy}}
 
 What this does is change an annotation in the deployment with a timestamp. The deployment controller sees the change and kills the pods one-at-a-time. The pods are replaced automatically.
