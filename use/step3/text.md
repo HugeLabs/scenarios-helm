@@ -96,7 +96,6 @@ vi templates/service.yaml
 
 Put defaults for those values into values.yaml
 
-```bash
 
 ```bash
 cat << EOF > values.yaml
