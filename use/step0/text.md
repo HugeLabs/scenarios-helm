@@ -32,19 +32,13 @@ Helm is a package manager for Kubernetes.
 <details><summary></summary>
 
 
-# The Environment
-
-Inspect Kubernetes environment.
-
 <!-- Speaker script:
 Let's take a look at the environment we'll be working in.
 -->
 
-<details><summary></summary>
+## Kubernetes Cluster
 
-### Cluster Nodes
-
-List the nodes available in the cluster:
+We'll briefly inspect the kubernetes cluster.
 
 <!-- Speaker script:
 An aside on the pronunciation of the Kubernetes command line tool.
@@ -52,6 +46,8 @@ An aside on the pronunciation of the Kubernetes command line tool.
 I've heard it pronounced "kube control" and "kube cuddle", or kube-c-t-l. But at a local devops meetup, someone suggested the "worst reasonable pronunciation" as ku-bectl, saying it's fun to watch peoples' faces as you say it. It is indeed fun. I've been using that ever since, and I think you should try it too.
 -->
 
+
+### List nodes
 
 ```bash
 kubectl get nodes
@@ -64,9 +60,9 @@ The Kubernetes cluster is running on a single node.
 <details><summary></summary>
 
 
-### What's running right now?
+### What's running?
 
-Pods running in the cluster across all namespaces:
+Pods running in the cluster:
 
 ```bash
 kubectl get pods --all-namespaces
@@ -99,21 +95,5 @@ helm ls --all-namespaces
 
 <details><summary></summary>
 
-
-
 <!-- Speaker script:
 We can see that Helm is installed and configured to use the Kubernetes cluster.
-<details><summary></summary>
--->
-
-### Helm Releases
-
-List the Helm releases installed in the cluster:
-
-```bash
-helm ls --all-namespaces
-```{{copy}}
-
-<!-- Speaker script:
-None yet. This is the basic environment we'll be working in. Now let's put an application on this cluster.
--->
