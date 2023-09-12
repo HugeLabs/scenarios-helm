@@ -1,8 +1,8 @@
-## Step 3: Create a Minimum Viable Helm Chart
+### Minimum viable Helm chart
 
 In this step, we'll create a Helm chart to manage our Nginx service. We'll use the existing YAML files in '/root/spec' as a starting point for our Helm chart templates.
 
-### Initialize Helm Chart
+### Create Helm Chart from Scratch
 
 First, let's create a new directory for our Helm chart and navigate into it.
 
