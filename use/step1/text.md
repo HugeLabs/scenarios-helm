@@ -20,13 +20,13 @@ Namespaces are a way to group resources in Kubernetes. They are a way to organiz
 
 ```bash
 kubectl create namespace demo
-```{{exec}}
+```{{copy}}
 
 Verify it was created.
 
 ```bash
 kubectl get namespace
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 This is where we'll deploy the service.
@@ -48,7 +48,7 @@ We have a spec directory that contains the YAML files that define our service. W
 
 ```bash
 ls /root/spec
-```{{exec}}
+```{{copy}}
 
 <details><summary></summary>
 
@@ -60,7 +60,7 @@ Let's look at the YAML files that defines our "application".
 
 ```bash
 cat /root/spec/deployment.yaml
-```{{exec}}
+```{{copy}}
 
 
 <!-- Speaker script:
@@ -74,7 +74,7 @@ This is a deployment that will run an Nginx container. It will run one replica o
 
 ```bash
 cat /root/spec/service.yaml
-```{{exec}}
+```{{copy}}
 
 
 <!-- Speaker script:
@@ -84,7 +84,7 @@ This is a service that will expose the Nginx pods in the deployment. The service
 
 ```bash
 cat /root/spec/configmap.yaml
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 Here we define the static content that the Nginx container will serve.
@@ -102,7 +102,7 @@ Deploy the service from the YAML files in the spec directory.
 
 ```bash
 kubectl apply -f /root/spec/ -n demo
-```{{exec}}
+```{{copy}}
 
 <details><summary></summary>
 
@@ -116,7 +116,7 @@ A quick check to make sure that the service and deployment were created. We can 
 
 ```bash
 kubectl get all -n demo
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 Note that in kubectl, "get all" doesn't actually get all resources. It gets several resources that are commonly used. The configmap we created is here, but we do need to lookfor it specifically.
@@ -129,7 +129,7 @@ Note that in kubectl, "get all" doesn't actually get all resources. It gets seve
 
 ```bash
 kubectl get configmap -n demo
-```{{exec}}
+```{{copy}}
 
 <details><summary></summary>
 
@@ -139,7 +139,7 @@ Now, let's expose the service so that we can access it from the browser:
 
 ```bash
 kubectl port-forward -n demo --address 0.0.0.0 service/demo-service 80:80 &
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 Here we use the `kubectl port-forward` command to expose the service on port 80 of the node that we're connected to. This command will run in the background.
@@ -175,7 +175,7 @@ Delete the service:
 
 ```bash
 kubectl delete namespace demo
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 We'll delete the namespace that we created. This will delete all of the resources that we created in that namespace.
@@ -187,7 +187,7 @@ Check to see it's gone:
 
 ```bash
 kubectl get namespace
-```{{exec}}
+```{{copy}}
 
 <!-- Speaker script:
 We can see that the namespace was deleted.
